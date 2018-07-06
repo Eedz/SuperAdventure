@@ -49,6 +49,11 @@
             this.rtbMessages = new System.Windows.Forms.RichTextBox();
             this.dgvInventory = new System.Windows.Forms.DataGridView();
             this.dgvQuests = new System.Windows.Forms.DataGridView();
+            this.lblNorth = new System.Windows.Forms.Label();
+            this.lblWest = new System.Windows.Forms.Label();
+            this.lblEast = new System.Windows.Forms.Label();
+            this.lblSouth = new System.Windows.Forms.Label();
+            this.rtbWorldMap = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuests)).BeginInit();
             this.SuspendLayout();
@@ -168,9 +173,9 @@
             // 
             // btnNorth
             // 
-            this.btnNorth.Location = new System.Drawing.Point(493, 433);
+            this.btnNorth.Location = new System.Drawing.Point(509, 450);
             this.btnNorth.Name = "btnNorth";
-            this.btnNorth.Size = new System.Drawing.Size(78, 23);
+            this.btnNorth.Size = new System.Drawing.Size(50, 20);
             this.btnNorth.TabIndex = 13;
             this.btnNorth.Text = "North";
             this.btnNorth.UseVisualStyleBackColor = true;
@@ -178,9 +183,9 @@
             // 
             // btnEast
             // 
-            this.btnEast.Location = new System.Drawing.Point(573, 457);
+            this.btnEast.Location = new System.Drawing.Point(565, 476);
             this.btnEast.Name = "btnEast";
-            this.btnEast.Size = new System.Drawing.Size(45, 22);
+            this.btnEast.Size = new System.Drawing.Size(50, 20);
             this.btnEast.TabIndex = 14;
             this.btnEast.Text = "East";
             this.btnEast.UseVisualStyleBackColor = true;
@@ -188,9 +193,9 @@
             // 
             // btnSouth
             // 
-            this.btnSouth.Location = new System.Drawing.Point(493, 487);
+            this.btnSouth.Location = new System.Drawing.Point(509, 500);
             this.btnSouth.Name = "btnSouth";
-            this.btnSouth.Size = new System.Drawing.Size(78, 26);
+            this.btnSouth.Size = new System.Drawing.Size(50, 20);
             this.btnSouth.TabIndex = 15;
             this.btnSouth.Text = "South";
             this.btnSouth.UseVisualStyleBackColor = true;
@@ -198,9 +203,9 @@
             // 
             // btnWest
             // 
-            this.btnWest.Location = new System.Drawing.Point(412, 457);
+            this.btnWest.Location = new System.Drawing.Point(451, 476);
             this.btnWest.Name = "btnWest";
-            this.btnWest.Size = new System.Drawing.Size(78, 37);
+            this.btnWest.Size = new System.Drawing.Size(50, 20);
             this.btnWest.TabIndex = 16;
             this.btnWest.Text = "West";
             this.btnWest.UseVisualStyleBackColor = true;
@@ -223,6 +228,7 @@
             this.rtbMessages.Size = new System.Drawing.Size(360, 286);
             this.rtbMessages.TabIndex = 18;
             this.rtbMessages.Text = "";
+            this.rtbMessages.TextChanged += new System.EventHandler(this.rtbMessages_TextChanged);
             // 
             // dgvInventory
             // 
@@ -256,11 +262,58 @@
             this.dgvQuests.Size = new System.Drawing.Size(312, 189);
             this.dgvQuests.TabIndex = 20;
             // 
+            // lblNorth
+            // 
+            this.lblNorth.AutoSize = true;
+            this.lblNorth.Location = new System.Drawing.Point(515, 434);
+            this.lblNorth.Name = "lblNorth";
+            this.lblNorth.Size = new System.Drawing.Size(0, 13);
+            this.lblNorth.TabIndex = 21;
+            // 
+            // lblWest
+            // 
+            this.lblWest.AutoSize = true;
+            this.lblWest.Location = new System.Drawing.Point(410, 480);
+            this.lblWest.Name = "lblWest";
+            this.lblWest.Size = new System.Drawing.Size(0, 13);
+            this.lblWest.TabIndex = 22;
+            // 
+            // lblEast
+            // 
+            this.lblEast.AutoSize = true;
+            this.lblEast.Location = new System.Drawing.Point(621, 480);
+            this.lblEast.Name = "lblEast";
+            this.lblEast.Size = new System.Drawing.Size(0, 13);
+            this.lblEast.TabIndex = 23;
+            // 
+            // lblSouth
+            // 
+            this.lblSouth.AutoSize = true;
+            this.lblSouth.Location = new System.Drawing.Point(515, 523);
+            this.lblSouth.Name = "lblSouth";
+            this.lblSouth.Size = new System.Drawing.Size(0, 13);
+            this.lblSouth.TabIndex = 24;
+            // 
+            // rtbWorldMap
+            // 
+            this.rtbWorldMap.BackColor = System.Drawing.SystemColors.Window;
+            this.rtbWorldMap.Location = new System.Drawing.Point(733, 131);
+            this.rtbWorldMap.Name = "rtbWorldMap";
+            this.rtbWorldMap.Size = new System.Drawing.Size(322, 284);
+            this.rtbWorldMap.TabIndex = 25;
+            this.rtbWorldMap.Text = "";
+            this.rtbWorldMap.WordWrap = false;
+            // 
             // SuperAdventure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(719, 651);
+            this.ClientSize = new System.Drawing.Size(1077, 651);
+            this.Controls.Add(this.rtbWorldMap);
+            this.Controls.Add(this.lblSouth);
+            this.Controls.Add(this.lblEast);
+            this.Controls.Add(this.lblWest);
+            this.Controls.Add(this.lblNorth);
             this.Controls.Add(this.dgvQuests);
             this.Controls.Add(this.dgvInventory);
             this.Controls.Add(this.rtbMessages);
@@ -283,7 +336,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "SuperAdventure";
-            this.Text = "My Game";
+            this.Text = "The Super Adventure";
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuests)).EndInit();
             this.ResumeLayout(false);
@@ -314,6 +367,11 @@
         private System.Windows.Forms.RichTextBox rtbMessages;
         private System.Windows.Forms.DataGridView dgvInventory;
         private System.Windows.Forms.DataGridView dgvQuests;
+        private System.Windows.Forms.Label lblNorth;
+        private System.Windows.Forms.Label lblWest;
+        private System.Windows.Forms.Label lblEast;
+        private System.Windows.Forms.Label lblSouth;
+        private System.Windows.Forms.RichTextBox rtbWorldMap;
     }
 }
 

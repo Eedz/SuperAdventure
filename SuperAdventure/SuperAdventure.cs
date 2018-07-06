@@ -26,6 +26,7 @@ namespace SuperAdventure
             _player = new Player(10, 10, 20, 0, 1);
             MoveTo(World.LocationByID(World.LOCATION_ID_HOME));
             _player.Inventory.Add(new InventoryItem(World.ItemByID(World.ITEM_ID_RUSTY_SWORD), 1));
+            
 
             lblHitPoints.Text = _player.CurrentHitPoints.ToString();
             lblGold.Text = _player.Gold.ToString();
@@ -64,12 +65,11 @@ namespace SuperAdventure
 
             // Update the player's current location
             _player.CurrentLocation = newLocation;
+            // Add the location to the player's atlas, if it is not already there
+            _player.Atlas.AddLocation(newLocation);
 
             // Show/hide available movement buttons
-            btnNorth.Visible = (newLocation.LocationToNorth != null);
-            btnEast.Visible = (newLocation.LocationToEast != null);
-            btnSouth.Visible = (newLocation.LocationToSouth != null);
-            btnWest.Visible = (newLocation.LocationToWest != null);
+            UpdateCompass(newLocation);
 
             // Display current location name and description
             rtbLocation.Text = newLocation.Name + Environment.NewLine;
@@ -80,6 +80,7 @@ namespace SuperAdventure
     
             // Update Hit Points in UI
             lblHitPoints.Text = _player.CurrentHitPoints.ToString();
+
             // Does the location have a quest?
             if(newLocation.QuestAvailableHere != null)
             {
@@ -277,6 +278,50 @@ namespace SuperAdventure
             }
         }
 
+        private void UpdateCompass(Location newLocation)
+        {
+            // Show/hide compass buttons
+            btnNorth.Visible = (newLocation.LocationToNorth != null);
+            btnEast.Visible = (newLocation.LocationToEast != null);
+            btnSouth.Visible = (newLocation.LocationToSouth != null);
+            btnWest.Visible = (newLocation.LocationToWest != null);
+
+            // label known locations
+            if (_player.Atlas.HasLocation(newLocation.LocationToNorth))
+                lblNorth.Text = newLocation.LocationToNorth.Name;
+            else
+                lblNorth.Text = "";
+            
+            if (_player.Atlas.HasLocation(newLocation.LocationToEast))
+                lblEast.Text = newLocation.LocationToEast.Name;
+            else
+                lblEast.Text = "";
+
+            if (_player.Atlas.HasLocation(newLocation.LocationToSouth))
+                lblSouth.Text = newLocation.LocationToSouth.Name;
+            else
+                lblSouth.Text = "";
+
+            if (_player.Atlas.HasLocation(newLocation.LocationToWest))
+                lblWest.Text = newLocation.LocationToWest.Name;
+            else
+                lblWest.Text = "";
+
+            if (newLocation.LocationToNorth == null)
+                lblNorth.Text = "";
+
+            if (newLocation.LocationToEast == null)
+                lblEast.Text = "";
+
+            if (newLocation.LocationToSouth == null)
+                lblSouth.Text = "";
+
+            if (newLocation.LocationToWest == null)
+                lblWest.Text = "";
+
+            rtbWorldMap.Text = "";
+        }
+
         private void btnUseWeapon_Click(object sender, EventArgs e)
         {
             // Get the currently selected weapon from the cboWeapons ComboBox
@@ -440,6 +485,17 @@ namespace SuperAdventure
             lblHitPoints.Text = _player.CurrentHitPoints.ToString();
             UpdateInventoryListInUI();
             UpdatePotionListInUI();
+        }
+
+        private void ScrollToBottomOfMessages()
+        {
+            rtbMessages.SelectionStart = rtbMessages.Text.Length;
+            rtbMessages.ScrollToCaret();
+        }
+
+        private void rtbMessages_TextChanged(object sender, EventArgs e)
+        {
+            ScrollToBottomOfMessages();
         }
     }
 }
