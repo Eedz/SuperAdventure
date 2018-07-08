@@ -16,6 +16,7 @@ namespace SuperAdventure
     public partial class SuperAdventure : Form
     {
         private const string PLAYER_DATA_FILE_NAME = "PlayerData.xml";
+        private const string DEFAULT_PLAYER_DATA_FILE_NAME = "DefaultPlayerData.xml";
 
         private Player _player;
         
@@ -29,7 +30,8 @@ namespace SuperAdventure
             }
             else
             {
-                _player = Player.CreateDefaultPlayer();
+                _player = Player.CreatePlayerFromXmlString(File.ReadAllText(DEFAULT_PLAYER_DATA_FILE_NAME));
+                //_player = Player.CreateDefaultPlayer();
             }
 
             lblHitPoints.DataBindings.Add("Text", _player, "CurrentHitPoints");

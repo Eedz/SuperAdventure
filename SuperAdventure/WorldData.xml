@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<World>
+  <Locations>
+    <Zone ID="1" Name="Home" Description="Your house. You really need to clean up the place.">
+      <LocationToNorth ID ="2" />
+      <LocationToEast ID="13" />
+      <LocationToSouth  ID="15" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="2" Name="Town Square" Description="You see a fountain.">
+      <LocationToNorth ID="4" />
+      <LocationToEast ID="3" />
+      <LocationToSouth ID="1" />
+      <LocationToWest ID="6" />
+    </Zone>
+    <Zone ID="3" Name="Guard Post" Description="There is a large, tough-looking guard here." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="8" />
+      <LocationToSouth ID="13" />
+      <LocationToWest ID="2" />
+    </Zone>
+    <Zone ID="4" Name="Alchemist's Hut" Description="There are many strange plants on the shelves." >
+      <LocationToNorth ID="5" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="2" />
+      <LocationToWest ID="0" />
+      <Quest ID ="1" />
+    </Zone>
+    <Zone ID="5" Name="Alchemist's Garden" Description="Many plants are growing here." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="4" />
+      <LocationToWest ID="0" />
+      <Monster ID ="1"/>
+    </Zone>
+    <Zone ID="6" Name="Farmhouse" Description="There is a small farmhouse, with a farmer in front." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="2" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="7" />
+      <Quest ID="2" />
+    </Zone>
+    <Zone ID="7" Name="Farm Field" Description="You see rows of vegetables growing here." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="6" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="0" />
+      <Monster ID ="2"/>
+    </Zone>
+    <Zone ID="8" Name="Bridge" Description="A stone bridge crosses a wide river." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="9" />
+      <LocationToSouth ID="14" />
+      <LocationToWest ID="3" />
+    </Zone>
+    <Zone ID="9" Name="Forest Entrance" Description="The edge of the woods." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="10" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="8" />
+    </Zone>
+    <Zone ID="10" Name="Forest Path" Description="A lush forest. You see spider webs covering covering the trees in this forest." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="11" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="9" />
+      <Monster ID="3" />
+    </Zone>
+    <Zone ID="11" Name="Mountain Path" Description="The path leads into the side of a mountain." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="12" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="10" />
+    </Zone>
+    <Zone ID="12" Name="Far Forest" Description="A wilder, denser forest on the other side of the mountain." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="11" />
+    </Zone>
+    <Zone ID="13" Name="River Bend" Description="A bend in the river, causing the river to run from the south and into the east." >
+      <LocationToNorth ID="3" />
+      <LocationToEast ID="14" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="1" />
+    </Zone>
+    <Zone ID="14" Name="River Bend" Description="A wide river. The water is running out of the east and into the north." >
+      <LocationToNorth ID="8" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="13" />
+    </Zone>
+    <Zone ID="15" Name="River's Edge" Description="A wide river." >
+      <LocationToNorth ID="1" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="0" />
+    </Zone>
+      
+
+  </Locations>
+  <Quests>
+    <PlayerQuest ID="1" Name="Clear the alchemist's garden" Description="Kill rats in the alchemist's garden and bring back 3 rat tails. You will receive a healing potion and 10 gold pieces.">
+      <RequiredItems>
+        <RequiredItem ID="2" Quantity="3" />
+      </RequiredItems>
+      <RewardExperience>20</RewardExperience>
+      <RewardGold>10</RewardGold>
+      <RewardItems>
+        <RewardItem ID ="7" />
+      </RewardItems>
+    </PlayerQuest>
+    <PlayerQuest ID="2" Name="Clear the farmer's field" Description="Kill snakes in the farmer's field and bring back 3 snake fangs. You will receive an adventurer's pass and 20 gold pieces.">
+      <RequiredItems>
+        <RequiredItem ID="4" Quantity="3" />
+      </RequiredItems>
+      <RewardExperience>20</RewardExperience>
+      <RewardGold>20</RewardGold>
+      <RewardItems>
+        <RewardItem ID ="10" />
+      </RewardItems>
+    </PlayerQuest>
+  </Quests>
+  <Items>
+    
+    <Item ID="0" Name="Atlas" Plural="Atli" Description="A map of places you've visited." />
+    <Item ID="1" Name="Rusty sword" Plural="Rusty Swords" Description="">
+      <MinimumDamage>0</MinimumDamage>
+      <MaximumDamage>5</MaximumDamage>
+    </Item>
+    <Item ID="2" Name="Rat tail" Plural="Rat tails" Description="" />
+    <Item ID="3" Name="Pice of fur" Plural="Pieces of fur" Description="" />
+    <Item ID="4" Name="Snake fang" Plural="Snake fangs" Description="" />
+    <Item ID="5" Name="Snakeskin" Plural="Snakeskins" Description="" />
+    <Item ID="6" Name="Club" Plural="Clubs" Description="" >
+      <MinimumDamage>3</MinimumDamage>
+      <MaximumDamage>10</MaximumDamage>
+    </Item>
+    <Item ID="7" Name="Acid flask" Plural="Acid Flasks" Description="" >
+      <MinimumDamage>5</MinimumDamage>
+      <MaximumDamage>10</MaximumDamage>
+    </Item>
+    <Item ID="8" Name="Spider fang" Plural="Spider fangs" Description="" />
+    <Item ID="9" Name="Spider silk" Plural="Spider silks" Description="" />
+    <Item ID="10" Name="Adventurer pass" Plural="Adventurer passes" Description="" />        
+  </Items>
+  <Monsters>
+    <Monster ID="1" Name="Rat" MaximumDamage="5" RewardExperiencePoints="3" RewardGold="10" CurrentHP="3" MaximumHP="3" >
+      <LootIem ID="2" DropRate="75" DeafultItem="False" />
+      <LootIem ID="3" DropRate="75" DeafultItem="True" />
+    </Monster>
+    <Monster ID="2" Name="Snake" MaximumDamage="5" RewardExperiencePoints="3" RewardGold="10" CurrentHP="3" MaximumHP="3" >
+      <LootIem ID="4" DropRate="75" DeafultItem="False" />
+      <LootIem ID="5" DropRate="75" DeafultItem="True" />
+    </Monster>
+    <Monster ID="3" Name="Giant spider" MaximumDamage="20" RewardExperiencePoints="5" RewardGold="40" CurrentHP="10" MaximumHP="10" >
+      <LootIem ID="8" DropRate="75" DeafultItem="True" />
+      <LootIem ID="9" DropRate="75" DeafultItem="False" />
+    </Monster>
+  </Monsters>
+</World>
