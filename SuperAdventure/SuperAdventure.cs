@@ -1,38 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Engine;
+using System;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.IO;
-
-using Engine;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace SuperAdventure
 {
+    // TODO create save slots
+    // TODO create Load Game screen
     public partial class SuperAdventure : Form
     {
-        private const string PLAYER_DATA_FILE_NAME = "PlayerData.xml";
-        private const string DEFAULT_PLAYER_DATA_FILE_NAME = "DefaultPlayerData.xml";
 
+        private string DataFile { get; set; }
         private Player _player;
         
 
-        public SuperAdventure()
+        public SuperAdventure(string playerDataFile)
         {
             InitializeComponent();
-            if (File.Exists(PLAYER_DATA_FILE_NAME))
-            {
-                _player = Player.CreatePlayerFromXmlString(File.ReadAllText(PLAYER_DATA_FILE_NAME));
-            }
-            else
-            {
-                _player = Player.CreatePlayerFromXmlString(File.ReadAllText(DEFAULT_PLAYER_DATA_FILE_NAME));
-                //_player = Player.CreateDefaultPlayer();
-            }
+            
+            DataFile = playerDataFile;
+
+            _player = Player.CreatePlayerFromXmlString(File.ReadAllText(DataFile));
 
             lblHitPoints.DataBindings.Add("Text", _player, "CurrentHitPoints");
             lblGold.DataBindings.Add("Text", _player, "Gold");
@@ -140,15 +131,9 @@ namespace SuperAdventure
                 {
                     c.Text = "??";
                 }
-                //UpdateMap(newLocation, btnMap22);
+
                 UpdateMap(_player.CurrentLocation, btnMap22);
                 btnMap22.ForeColor = Color.Red;
-
-                // Show/hide available movement buttons
-                //btnNorth.Visible = (_player.CurrentLocation.LocationToNorth != null);
-                //btnEast.Visible = (_player.CurrentLocation.LocationToEast != null);
-                //btnSouth.Visible = (_player.CurrentLocation.LocationToSouth != null);
-                //btnWest.Visible = (_player.CurrentLocation.LocationToWest != null);
 
                 // Display current location name and description
                 rtbLocation.Text = _player.CurrentLocation.Name + Environment.NewLine;
@@ -168,7 +153,11 @@ namespace SuperAdventure
                     btnUseWeapon.Visible = _player.Weapons.Any();
                     btnUsePotion.Visible = _player.Potions.Any();
                 }
+
+                btnTrade.Visible = (_player.CurrentLocation.VendorWorkingHere != null);
             }
+
+            
         }
 
         private void btnNorth_Click(object sender, EventArgs e)
@@ -189,6 +178,13 @@ namespace SuperAdventure
         private void btnWest_Click(object sender, EventArgs e)
         {
             _player.MoveWest();
+        }
+
+        private void btnTrade_Click(object sender, EventArgs e)
+        {
+            TradingScreen tradingScreen = new TradingScreen(_player);
+            tradingScreen.StartPosition = FormStartPosition.CenterParent;
+            tradingScreen.ShowDialog(this);
         }
 
         private void UpdateCompass(Location newLocation)
@@ -324,8 +320,11 @@ namespace SuperAdventure
 
         private void SuperAdventure_FormClosing(object sender, FormClosingEventArgs e)
         {
-            File.WriteAllText(
-            PLAYER_DATA_FILE_NAME, _player.ToXmlString());
+            if (DataFile.StartsWith("Default"))
+                DataFile = DataFile.Replace("Default", "");
+
+            File.WriteAllText(DataFile, _player.ToXmlString());
+            
         }
 
         private void cboWeapons_SelectedIndexChanged(object sender, EventArgs e)

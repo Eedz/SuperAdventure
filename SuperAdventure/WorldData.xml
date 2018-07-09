@@ -12,6 +12,9 @@
       <LocationToEast ID="3" />
       <LocationToSouth ID="1" />
       <LocationToWest ID="6" />
+      <Vendors>
+        <Vendor ID ="1" />
+      </Vendors>
     </Zone>
     <Zone ID="3" Name="Guard Post" Description="There is a large, tough-looking guard here." >
       <LocationToNorth ID="0" />
@@ -52,6 +55,9 @@
       <LocationToEast ID="9" />
       <LocationToSouth ID="14" />
       <LocationToWest ID="3" />
+      <ItemsRequired>
+        <ItemRequired ID="10" />
+      </ItemsRequired>
     </Zone>
     <Zone ID="9" Name="Forest Entrance" Description="The edge of the woods." >
       <LocationToNorth ID="0" />
@@ -122,27 +128,46 @@
     </PlayerQuest>
   </Quests>
   <Items>
-    
-    <Item ID="0" Name="Atlas" Plural="Atli" Description="A map of places you've visited." />
+
+    <Item ID="0" Name="Atlas" Plural="Atli" Description="A map of places you've visited." >
+      <Price>-1</Price>
+    </Item>
     <Item ID="1" Name="Rusty sword" Plural="Rusty Swords" Description="">
       <MinimumDamage>0</MinimumDamage>
       <MaximumDamage>5</MaximumDamage>
+      <Price>15</Price>
     </Item>
-    <Item ID="2" Name="Rat tail" Plural="Rat tails" Description="" />
-    <Item ID="3" Name="Pice of fur" Plural="Pieces of fur" Description="" />
-    <Item ID="4" Name="Snake fang" Plural="Snake fangs" Description="" />
-    <Item ID="5" Name="Snakeskin" Plural="Snakeskins" Description="" />
+    <Item ID="2" Name="Rat tail" Plural="Rat tails" Description="" >
+      <Price>1</Price>
+    </Item>
+    <Item ID="3" Name="Pice of fur" Plural="Pieces of fur" Description="" >
+      <Price>1</Price>
+    </Item>
+    <Item ID="4" Name="Snake fang" Plural="Snake fangs" Description="" >
+      <Price>1</Price>
+    </Item>
+    <Item ID="5" Name="Snakeskin" Plural="Snakeskins" Description="" >
+      <Price>1</Price>
+    </Item>
     <Item ID="6" Name="Club" Plural="Clubs" Description="" >
       <MinimumDamage>3</MinimumDamage>
       <MaximumDamage>10</MaximumDamage>
+      <Price>25</Price>
     </Item>
     <Item ID="7" Name="Acid flask" Plural="Acid Flasks" Description="" >
       <MinimumDamage>5</MinimumDamage>
       <MaximumDamage>10</MaximumDamage>
+      <Price>30</Price>
     </Item>
-    <Item ID="8" Name="Spider fang" Plural="Spider fangs" Description="" />
-    <Item ID="9" Name="Spider silk" Plural="Spider silks" Description="" />
-    <Item ID="10" Name="Adventurer pass" Plural="Adventurer passes" Description="" />        
+    <Item ID="8" Name="Spider fang" Plural="Spider fangs" Description="" >
+      <Price>1</Price>
+    </Item>
+    <Item ID="9" Name="Spider silk" Plural="Spider silks" Description="" >
+      <Price>1</Price>
+    </Item>
+    <Item ID="10" Name="Adventurer pass" Plural="Adventurer passes" Description="" >
+      <Price>-1</Price>
+    </Item>
   </Items>
   <Monsters>
     <Monster ID="1" Name="Rat" MaximumDamage="5" RewardExperiencePoints="3" RewardGold="10" CurrentHP="3" MaximumHP="3" >
@@ -158,4 +183,12 @@
       <LootIem ID="9" DropRate="75" DeafultItem="False" />
     </Monster>
   </Monsters>
+  <NPCs>
+    <NPC ID="1" Name ="Innkeeper Josiah" CurrentHP="10" MaximumHP="10">
+      <InventoryItems>
+        <InventoryItem ID="6" Quantity="1"/>
+        <InventoryItem ID="9" Quantity="5"/>
+      </InventoryItems>
+    </NPC>
+  </NPCs>
 </World>
