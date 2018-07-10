@@ -127,13 +127,17 @@ namespace SuperAdventure
                 UpdateCompass(_player.CurrentLocation);
 
                 // Update Map
-                foreach (Control c in pnlWorldMap.Controls)
+                foreach (Button c in pnlWorldMap.Controls)
                 {
                     c.Text = "??";
+                    c.Image = null;
                 }
 
                 UpdateMap(_player.CurrentLocation, btnMap22);
                 btnMap22.ForeColor = Color.Red;
+                btnMap22.FlatStyle = FlatStyle.Flat;
+                btnMap22.FlatAppearance.BorderColor = Color.Red;
+                btnMap22.FlatAppearance.BorderSize = 2;
 
                 // Display current location name and description
                 rtbLocation.Text = _player.CurrentLocation.Name + Environment.NewLine;
@@ -190,10 +194,10 @@ namespace SuperAdventure
         private void UpdateCompass(Location newLocation)
         {
             // Show/hide compass buttons
-            btnNorth.Visible = (newLocation.LocationToNorth != null);
-            btnEast.Visible = (newLocation.LocationToEast != null);
-            btnSouth.Visible = (newLocation.LocationToSouth != null);
-            btnWest.Visible = (newLocation.LocationToWest != null);
+            btnNorth.Enabled = (newLocation.LocationToNorth != null);
+            btnEast.Enabled = (newLocation.LocationToEast != null);
+            btnSouth.Enabled = (newLocation.LocationToSouth != null);
+            btnWest.Enabled = (newLocation.LocationToWest != null);
 
             // label known locations
             if (_player.Atlas.HasLocation(newLocation.LocationToNorth))
@@ -256,11 +260,12 @@ namespace SuperAdventure
                 {
                     west = (Button)c;
                 }
-                
             }
 
+            // Set the picture of the button
+            SetButtonPicture(currentLocation, btnCenter);
             // Label the center button with the current location's name
-            btnCenter.Text = currentLocation.Name;
+            //btnCenter.Text = currentLocation.Name;
 
             // Fill out area to north of center
             if (north != null && north.Text.Equals("??"))
@@ -300,6 +305,38 @@ namespace SuperAdventure
             }
 
 
+        }
+
+        private void SetButtonPicture(Location loc, Button btn)
+        {
+            if (loc.Name.Contains("East/North/South"))
+            {
+                btn.Text = "";
+                btn.Image = Properties.Resources.RoadENS;
+            }
+            else if (loc.Name.Contains("North/East"))
+            { 
+                btn.Text = "";
+                btn.Image = Properties.Resources.RoadNE;
+            }
+            else if (loc.Name.Contains("North/South"))
+            {
+                btn.Text = "";
+                btn.Image = Properties.Resources.RoadNS;
+            } else if (loc.Name.Contains("East/West"))
+            {
+                btn.Text = "";
+                btn.Image = Properties.Resources.RoadEW;
+            } else if (loc.Name.Contains("All"))
+            {
+                btn.Text = "";
+                btn.Image = Properties.Resources.RoadAll;
+            }
+            else
+            {
+                btn.Image = null;
+                btn.Text = loc.Name;
+            }
         }
 
         private void btnUseWeapon_Click(object sender, EventArgs e)

@@ -1,0 +1,349 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<World>
+  <Locations>
+    <Zone ID="1" Name="Front Gate" Description="The front gate of the campground. A ranger sits in a booth.">
+      <LocationToNorth ID ="2" />
+      <LocationToEast ID="0" />
+      <LocationToSouth  ID="0" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="2" Name="Road (North/South)" Description="A two-lane road leading further into the campground. To the south is the entry gate.">
+      <LocationToNorth ID="3" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="1" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="3" Name="Road (North/South)" Description="A two-lane road leading further into the campground." >
+      <LocationToNorth ID="4" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="2" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="4" Name="Road (North/South)" Description="A two-lane road leading further into the campground. To the east is a small hut with firewood." >
+      <LocationToNorth ID="5" />
+      <LocationToEast ID="26" />
+      <LocationToSouth ID="3" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="5" Name="Road (North/South)" Description="A two-lane road leading further into the campground. There are washrooms with showers to the west." >
+      <LocationToNorth ID="6" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="4" />
+      <LocationToWest ID="27" />
+    </Zone>
+    <Zone ID="6" Name="Road (North/South)" Description="A two-lane road leading further into the campground. To the east is a water station and to the west is a campsite, site #1." >
+      <LocationToNorth ID="7" />
+      <LocationToEast ID="28" />
+      <LocationToSouth ID="5" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="7" Name="Road (All)" Description="A two-lane road. There is a signpost with 4 directions. North: Campsites 8 and 9. East: Beach. West: Campsites 1-7. South: Front Gate." >
+      <LocationToNorth ID="8" />
+      <LocationToEast ID="17" />
+      <LocationToSouth ID="6" />
+      <LocationToWest ID="11" />
+    </Zone>
+    <Zone ID="8" Name="Road (North/South)" Description="A two-lane road leading further into the campground." >
+      <LocationToNorth ID="9" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="7" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="9" Name="Road (North/South)" Description="A two-lane road leading further into the campground." >
+      <LocationToNorth ID="10" />
+      <LocationToEast ID="36" />
+      <LocationToSouth ID="8" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="10" Name="Road (North/South)" Description="A two-lane road leading further into the campground." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="9" />
+      <LocationToWest ID="37" />
+    </Zone>
+    <Zone ID="11" Name="Road (East/West)" Description="A two-lane road leading further into the campground." >
+      <LocationToNorth ID="35" />
+      <LocationToEast ID="7" />
+      <LocationToSouth ID="30" />
+      <LocationToWest ID="12" />
+    </Zone>
+    <Zone ID="12" Name="Road (East/West)" Description="A two-lane road leading further into the campground." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="11" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="13" />
+    </Zone>
+    <Zone ID="13" Name="Road (North/East)" Description="A two-lane road bending to the north." >
+      <LocationToNorth ID="14" />
+      <LocationToEast ID="12" />
+      <LocationToSouth ID="31" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="14" Name="Road (North/South)" Description="A two-lane road leading further into the campground." >
+      <LocationToNorth ID="15" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="13" />
+      <LocationToWest ID="32" />
+    </Zone>
+    <Zone ID="15" Name="Road (North/South)" Description="A two-lane road leading further into the campground." >
+      <LocationToNorth ID="16" />
+      <LocationToEast ID="34" />
+      <LocationToSouth ID="14" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="16" Name="Road (North/South)" Description="A two-lane road leading further into the campground." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="15" />
+      <LocationToWest ID="33" />
+    </Zone>
+    <Zone ID="17" Name="Road (East/West)" Description="A two-lane road leading further into the campground." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="18" />
+      <LocationToSouth ID="28" />
+      <LocationToWest ID="7" />
+    </Zone>
+    <Zone ID="18" Name="Road (East/West)" Description="A two-lane road leading further into the campground." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="19" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="17" />
+    </Zone>
+    <Zone ID="19" Name="Road (East/North/South)" Description="A T-instersection. To the east is the Campground Store, south is the path to the beach, and to the north, more campsites." >
+      <LocationToNorth ID="20" />
+      <LocationToEast ID="29" />
+      <LocationToSouth ID="23" />
+      <LocationToWest ID="18" />
+    </Zone>
+    <Zone ID="20" Name="Road (North/South)" Description="A two-lane road leading further into the campground." >
+      <LocationToNorth ID="21" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="19" />
+      <LocationToWest ID="38" />
+    </Zone>
+    <Zone ID="21" Name="Road (North/South)" Description="A two-lane road leading further into the campground." >
+      <LocationToNorth ID="22" />
+      <LocationToEast ID="40" />
+      <LocationToSouth ID="20" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="22" Name="Road (North/South)" Description="A two-lane road leading further into the campground." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="21" />
+      <LocationToWest ID="39" />
+    </Zone>
+    <Zone ID="23" Name="Road (North/South)" Description="A two-lane road leading to the beach." >
+      <LocationToNorth ID="19" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="24" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="24" Name="Road (North/East)" Description="A two-lane road bending to the west, towards the beach." >
+      <LocationToNorth ID="23" />
+      <LocationToEast ID="25" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="25" Name="Road (East/West)" Description="A two-lane road leading to the beach parking lot." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="41" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="24" />
+    </Zone>
+    <Zone ID="26" Name="Firewood Hut." Description="Firewood is stacking neatly in piles. A bored teenager sits on a bench and offers bundles of firewood to campers." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="4" />
+      <Vendors>
+        <Vendor ID="1" />
+      </Vendors>
+    </Zone>
+    <Zone ID="27" Name="Washroom and Showers" Description="A building with washrooms and 6 shower stalls." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="5" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="28" Name="Water station" Description="A water tap surrounded by rocks." >
+      <LocationToNorth ID="17" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="6" />
+    </Zone>
+    <Zone ID="29" Name="Campground Store" Description="A general store offering things campers might need." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="43" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="19" />
+      <Vendors>
+        <Vendor ID="2" />
+      </Vendors>
+    </Zone>
+    <Zone ID="30" Name="Site #1" Description="A campsite." >
+      <LocationToNorth ID="11" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="31" Name="Site #2" Description="A campsite." >
+      <LocationToNorth ID="13" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="32" Name="Site #3" Description="A campsite." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="14" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="33" Name="Site #4" Description="Your campsite." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="16" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="34" Name="Site #5" Description="A campsite." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="15" />
+      <Quest ID ="1" />
+    </Zone>
+    <Zone ID="35" Name="Site #6" Description="A campsite." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="11" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="36" Name="Site #7" Description="A campsite." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="9" />
+    </Zone>
+    <Zone ID="37" Name="Site #8" Description="A campsite." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="10" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="38" Name="Site #9" Description="A campsite." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="20" />
+      <LocationToSouth ID="18" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="39" Name="Site #10" Description="A campsite." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="22" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="40" Name="Site #11" Description="A campsite." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="21" />
+    </Zone>
+    <Zone ID="41" Name="Beach" Description="Families laugh and frolic in the waves." >
+      <LocationToNorth ID="42" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="0" />
+      <LocationToWest ID="25" />
+    </Zone>
+    <Zone ID="42" Name="Beach" Description="Families laugh and frolic in the waves." >
+      <LocationToNorth ID="43" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="41" />
+      <LocationToWest ID="0" />
+    </Zone>
+    <Zone ID="43" Name="Beach" Description="Families laugh and frolic in the waves." >
+      <LocationToNorth ID="0" />
+      <LocationToEast ID="0" />
+      <LocationToSouth ID="42" />
+      <LocationToWest ID="29" />
+    </Zone>
+  </Locations>
+  <Quests>
+    <PlayerQuest ID="1" Name="Find some firewood." Description="Find some firewood so your family can at least entertain themselves while you gather the rest of the supplies you forgot to pack.">
+      <RequiredItems>
+        <RequiredItem ID="1" Quantity="5" />
+      </RequiredItems>
+      <RewardExperience>20</RewardExperience>
+      <RewardGold>20</RewardGold>
+      <RewardItems>
+        <RewardItem ID ="0" />
+      </RewardItems>
+    </PlayerQuest>
+    
+  </Quests>
+  <Items>
+
+    <Item ID="0" Name="Atlas" Plural="Atli" Description="A map of places you've visited." >
+      <Price>-1</Price>
+    </Item>
+    <Item ID="1" Name="Bundle of Firewood" Plural="Bundles of Firewood" Description="">
+      <Price>2</Price>
+    </Item>
+    <Item ID="2" Name="Meat" Plural="Meat" Description="" >
+      <Price>1</Price>
+    </Item>
+    <Item ID="3" Name="Pice of fur" Plural="Pieces of fur" Description="" >
+      <Price>1</Price>
+    </Item>
+    <Item ID="4" Name="Snake fang" Plural="Snake fangs" Description="" >
+      <Price>1</Price>
+    </Item>
+    <Item ID="5" Name="Snakeskin" Plural="Snakeskins" Description="" >
+      <Price>1</Price>
+    </Item>
+    <Item ID="6" Name="Club" Plural="Clubs" Description="" >
+      <MinimumDamage>3</MinimumDamage>
+      <MaximumDamage>10</MaximumDamage>
+      <Price>25</Price>
+    </Item>
+    <Item ID="7" Name="Acid flask" Plural="Acid Flasks" Description="" >
+      <MinimumDamage>5</MinimumDamage>
+      <MaximumDamage>10</MaximumDamage>
+      <Price>30</Price>
+    </Item>
+    <Item ID="8" Name="Spider fang" Plural="Spider fangs" Description="" >
+      <Price>1</Price>
+    </Item>
+    <Item ID="9" Name="Spider silk" Plural="Spider silks" Description="" >
+      <Price>1</Price>
+    </Item>
+    <Item ID="10" Name="Adventurer pass" Plural="Adventurer passes" Description="" >
+      <Price>-1</Price>
+    </Item>
+  </Items>
+  <Monsters>
+    <Monster ID="1" Name="Rat" MaximumDamage="5" RewardExperiencePoints="3" RewardGold="10" CurrentHP="3" MaximumHP="3" >
+      <LootIem ID="2" DropRate="75" DeafultItem="False" />
+      <LootIem ID="3" DropRate="75" DeafultItem="True" />
+    </Monster>
+    <Monster ID="2" Name="Snake" MaximumDamage="5" RewardExperiencePoints="3" RewardGold="10" CurrentHP="3" MaximumHP="3" >
+      <LootIem ID="4" DropRate="75" DeafultItem="False" />
+      <LootIem ID="5" DropRate="75" DeafultItem="True" />
+    </Monster>
+    <Monster ID="3" Name="Giant spider" MaximumDamage="20" RewardExperiencePoints="5" RewardGold="40" CurrentHP="10" MaximumHP="10" >
+      <LootIem ID="8" DropRate="75" DeafultItem="True" />
+      <LootIem ID="9" DropRate="75" DeafultItem="False" />
+    </Monster>
+  </Monsters>
+  <NPCs>
+    <NPC ID="1" Name="Caleb" CurrentHP="10" MaximumHP="10">
+      <InventoryItems>
+        <InventoryItem ID="1" Quantity="10"/>
+      </InventoryItems>
+    </NPC>
+    <NPC ID="2" Name="Jack" CurrentHP="10" MaximumHP="10">
+      <InventoryItems>
+        <InventoryItem ID="1" Quantity="10"/>
+      </InventoryItems>
+    </NPC>
+  </NPCs>
+</World>

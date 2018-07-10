@@ -7,6 +7,8 @@ using System.Drawing;
 
 namespace Engine
 {
+    // TODO add list of items to locations, these can be picked up (like buying without spending money)
+    
     public class Location
     {
         public int ID { get; set; }

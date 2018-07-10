@@ -73,6 +73,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SuperAdventure.resx">
       <DependentUpon>SuperAdventure.cs</DependentUpon>
@@ -106,7 +107,18 @@
     <Content Include="DefaultPlayerData.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\RoadNS.png" />
+    <None Include="Resources\RoadEW.png" />
+    <None Include="Resources\RoadAll.png" />
+    <None Include="Resources\RoadENS.png" />
+    <None Include="Resources\RoadNE.png" />
+    <None Include="Resources\RoadNW.png" />
+    <None Include="Resources\RoadSE.png" />
+    <None Include="Resources\RoadSW.png" />
     <Content Include="WorldData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CampgroundData.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

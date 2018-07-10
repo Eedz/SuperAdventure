@@ -40,11 +40,11 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(74, 41);
+            this.lblTitle.Location = new System.Drawing.Point(168, 44);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(634, 91);
+            this.lblTitle.Size = new System.Drawing.Size(471, 91);
             this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "Super Adventure";
+            this.lblTitle.Text = "Camp Lethe";
             // 
             // btnNewGame
             // 

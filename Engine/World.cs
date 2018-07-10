@@ -6,7 +6,8 @@ namespace Engine
 {
     public class World
     {
-        private const string WORLD_DATA_FILE_NAME = "WorldData.xml";
+        //private const string WORLD_DATA_FILE_NAME = "WorldData.xml";
+        private const string WORLD_DATA_FILE_NAME = "CampgroundData.xml";
 
         public static readonly List<Item> Items = new List<Item>();
         public static readonly List<Monster> Monsters = new List<Monster>();

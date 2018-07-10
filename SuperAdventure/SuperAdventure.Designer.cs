@@ -287,9 +287,9 @@
             this.dgvQuests.RowHeadersVisible = false;
             this.dgvQuests.Size = new System.Drawing.Size(312, 189);
             this.dgvQuests.TabIndex = 20;
-            //
+            // 
             // btnTrade
-            //
+            // 
             this.btnTrade.Location = new System.Drawing.Point(493, 620);
             this.btnTrade.Name = "btnTrade";
             this.btnTrade.Size = new System.Drawing.Size(75, 23);
@@ -309,7 +309,7 @@
             // lblWest
             // 
             this.lblWest.AutoSize = true;
-            this.lblWest.Location = new System.Drawing.Point(410, 480);
+            this.lblWest.Location = new System.Drawing.Point(413, 457);
             this.lblWest.Name = "lblWest";
             this.lblWest.Size = new System.Drawing.Size(0, 13);
             this.lblWest.TabIndex = 22;
@@ -646,7 +646,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnTrade);
             this.Name = "SuperAdventure";
-            this.Text = "The Super Adventure";
+            this.Text = "Camp Lethe";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SuperAdventure_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuests)).EndInit();
