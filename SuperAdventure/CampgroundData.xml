@@ -6,6 +6,7 @@
       <LocationToEast ID="0" />
       <LocationToSouth  ID="0" />
       <LocationToWest ID="0" />
+      <Quest ID="1" />
     </Zone>
     <Zone ID="2" Name="Road (North/South)" Description="A two-lane road leading further into the campground. To the south is the entry gate.">
       <LocationToNorth ID="3" />
@@ -268,9 +269,19 @@
     </Zone>
   </Locations>
   <Quests>
-    <PlayerQuest ID="1" Name="Find some firewood." Description="Find some firewood so your family can at least entertain themselves while you gather the rest of the supplies you forgot to pack.">
+    <PlayerQuest ID="1" Name="Find your camp site." Description="The kids are restless, your wife is tired. Let's find the campsite and relax.">
       <RequiredItems>
-        <RequiredItem ID="1" Quantity="5" />
+        <RequiredItem ID="1" Quantity="0" />
+      </RequiredItems>
+      <RewardExperience>20</RewardExperience>
+      <RewardGold>20</RewardGold>
+      <RewardItems>
+        <RewardItem ID ="1" />
+      </RewardItems>
+    </PlayerQuest>
+    <PlayerQuest ID="2" Name="Find some firewood." Description="Find some firewood so your family can at least entertain themselves while you gather the rest of the supplies you forgot to pack.">
+      <RequiredItems>
+        <RequiredItem ID="2" Quantity="5" />
       </RequiredItems>
       <RewardExperience>20</RewardExperience>
       <RewardGold>20</RewardGold>
@@ -282,41 +293,41 @@
   </Quests>
   <Items>
 
-    <Item ID="0" Name="Atlas" Plural="Atli" Description="A map of places you've visited." >
+    <Item ID="1" Name="Camp Site #4 Permit" Plural="Camp Site #4 Permits" Description="The right to occupy campe site #4." >
       <Price>-1</Price>
     </Item>
-    <Item ID="1" Name="Bundle of Firewood" Plural="Bundles of Firewood" Description="">
+    <Item ID="2" Name="Bundle of Firewood" Plural="Bundles of Firewood" Description="">
       <Price>2</Price>
     </Item>
-    <Item ID="2" Name="Meat" Plural="Meat" Description="" >
+    <Item ID="3" Name="Meat" Plural="Meat" Description="" >
       <Price>1</Price>
     </Item>
-    <Item ID="3" Name="Pice of fur" Plural="Pieces of fur" Description="" >
+    <Item ID="4" Name="Pice of fur" Plural="Pieces of fur" Description="" >
       <Price>1</Price>
     </Item>
-    <Item ID="4" Name="Snake fang" Plural="Snake fangs" Description="" >
+    <Item ID="5" Name="Snake fang" Plural="Snake fangs" Description="" >
       <Price>1</Price>
     </Item>
-    <Item ID="5" Name="Snakeskin" Plural="Snakeskins" Description="" >
+    <Item ID="6" Name="Snakeskin" Plural="Snakeskins" Description="" >
       <Price>1</Price>
     </Item>
-    <Item ID="6" Name="Club" Plural="Clubs" Description="" >
+    <Item ID="7" Name="Club" Plural="Clubs" Description="" >
       <MinimumDamage>3</MinimumDamage>
       <MaximumDamage>10</MaximumDamage>
       <Price>25</Price>
     </Item>
-    <Item ID="7" Name="Acid flask" Plural="Acid Flasks" Description="" >
+    <Item ID="8" Name="Acid flask" Plural="Acid Flasks" Description="" >
       <MinimumDamage>5</MinimumDamage>
       <MaximumDamage>10</MaximumDamage>
       <Price>30</Price>
     </Item>
-    <Item ID="8" Name="Spider fang" Plural="Spider fangs" Description="" >
+    <Item ID="9" Name="Spider fang" Plural="Spider fangs" Description="" >
       <Price>1</Price>
     </Item>
-    <Item ID="9" Name="Spider silk" Plural="Spider silks" Description="" >
+    <Item ID="10" Name="Spider silk" Plural="Spider silks" Description="" >
       <Price>1</Price>
     </Item>
-    <Item ID="10" Name="Adventurer pass" Plural="Adventurer passes" Description="" >
+    <Item ID="11" Name="Adventurer pass" Plural="Adventurer passes" Description="" >
       <Price>-1</Price>
     </Item>
   </Items>
@@ -337,12 +348,12 @@
   <NPCs>
     <NPC ID="1" Name="Caleb" CurrentHP="10" MaximumHP="10">
       <InventoryItems>
-        <InventoryItem ID="1" Quantity="10"/>
+        <InventoryItem ID="2" Quantity="10"/>
       </InventoryItems>
     </NPC>
     <NPC ID="2" Name="Jack" CurrentHP="10" MaximumHP="10">
       <InventoryItems>
-        <InventoryItem ID="1" Quantity="10"/>
+        <InventoryItem ID="2" Quantity="10"/>
       </InventoryItems>
     </NPC>
   </NPCs>
