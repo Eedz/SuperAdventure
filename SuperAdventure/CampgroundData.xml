@@ -271,22 +271,26 @@
   <Quests>
     <PlayerQuest ID="1" Name="Find your camp site." Description="The kids are restless, your wife is tired. Let's find the campsite and relax.">
       <RequiredItems>
-        <RequiredItem ID="1" Quantity="0" />
+        <RequiredItem ID="1" Quantity="1" />
       </RequiredItems>
+      <RequiredLocation>
+        <Location ID="33" />
+      </RequiredLocation>
       <RewardExperience>20</RewardExperience>
       <RewardGold>20</RewardGold>
       <RewardItems>
-        <RewardItem ID ="1" />
+        <RewardItem ID="2" />
       </RewardItems>
     </PlayerQuest>
     <PlayerQuest ID="2" Name="Find some firewood." Description="Find some firewood so your family can at least entertain themselves while you gather the rest of the supplies you forgot to pack.">
       <RequiredItems>
         <RequiredItem ID="2" Quantity="5" />
       </RequiredItems>
+      <RequiredLocation>
+      </RequiredLocation>
       <RewardExperience>20</RewardExperience>
       <RewardGold>20</RewardGold>
       <RewardItems>
-        <RewardItem ID ="0" />
       </RewardItems>
     </PlayerQuest>
     
@@ -294,7 +298,7 @@
   <Items>
 
     <Item ID="1" Name="Camp Site #4 Permit" Plural="Camp Site #4 Permits" Description="The right to occupy campe site #4." >
-      <Price>-1</Price>
+      <Price>100</Price>
     </Item>
     <Item ID="2" Name="Bundle of Firewood" Plural="Bundles of Firewood" Description="">
       <Price>2</Price>

@@ -99,6 +99,18 @@ namespace Engine
             return null;
         }
 
+        public static Quest QuestByRequiredLocationID(int id)
+        {
+            foreach (Quest quest in Quests)
+            {
+                if (quest.RequiredLocation.ID == id)
+                {
+                    return quest;
+                }
+            }
+            return null;
+        }
+
         public static Location LocationByID(int id)
         {
             foreach (Location location in Locations)
@@ -203,39 +215,6 @@ namespace Engine
 
                 }
 
-                // Populate Quests
-                foreach (XmlNode node in worldData.SelectNodes("/World/Quests/PlayerQuest"))
-                {
-                    int id = Convert.ToInt32(node.Attributes["ID"].Value);
-                    string name = node.Attributes["Name"].Value;
-                    string description = node.Attributes["Description"].Value;
-                    int rewardExperiencePoints = Convert.ToInt32(node.SelectSingleNode("RewardExperience").InnerText);
-                    int rewardGold = Convert.ToInt32(node.SelectSingleNode("RewardGold").InnerText);
-                    Quests.Add(new Quest(id, name, description, rewardExperiencePoints, rewardGold));
-
-                    // Quest Completion Items
-                    foreach (XmlNode item in node["RequiredItems"])
-                    {
-                        int iid = Convert.ToInt32(item.Attributes["ID"].Value);
-                        int quantity = Convert.ToInt32(item.Attributes["Quantity"].Value); ;
-                        QuestByID(id).QuestCompletionItems.Add(new QuestCompletionItem(ItemByID(iid), quantity));
-                    }
-                        
-
-                    // Quest Rewards
-                    foreach (XmlNode item in node["RewardItems"].ChildNodes)
-                    {
-                        int iid = Convert.ToInt32(item.Attributes["ID"].Value);
-
-                        QuestByID(id).RewardItem = ItemByID(iid);
-                    }
-                   
-
-
-                }
-                
-                // Populate Locations
-
                 // Populate Locations
                 foreach (XmlNode node in worldData.SelectNodes("/World/Locations/Zone"))
                 {
@@ -255,8 +234,45 @@ namespace Engine
                     catch { }
                 }
 
+                // Populate Quests
+                foreach (XmlNode node in worldData.SelectNodes("/World/Quests/PlayerQuest"))
+                {
+                    int id = Convert.ToInt32(node.Attributes["ID"].Value);
+                    string name = node.Attributes["Name"].Value;
+                    string description = node.Attributes["Description"].Value;
+                    int rewardExperiencePoints = Convert.ToInt32(node.SelectSingleNode("RewardExperience").InnerText);
+                    int rewardGold = Convert.ToInt32(node.SelectSingleNode("RewardGold").InnerText);
+                    Quests.Add(new Quest(id, name, description, rewardExperiencePoints, rewardGold));
+
+                    // Quest Completion Items
+                    foreach (XmlNode item in node["RequiredItems"])
+                    {
+                        int iid = Convert.ToInt32(item.Attributes["ID"].Value);
+                        int quantity = Convert.ToInt32(item.Attributes["Quantity"].Value); ;
+                        QuestByID(id).QuestCompletionItems.Add(new QuestCompletionItem(ItemByID(iid), quantity));
+                    }
+
+                    // Quest Completion Locations
+                    foreach (XmlNode item in node["RequiredLocation"].ChildNodes)
+                    {
+                        int iid = Convert.ToInt32(item.Attributes["ID"].Value);
+
+                        QuestByID(id).RequiredLocation = LocationByID(iid);
+                    }
+
+                    // Quest Rewards
+                    foreach (XmlNode item in node["RewardItems"].ChildNodes)
+                    {
+                        int iid = Convert.ToInt32(item.Attributes["ID"].Value);
+
+                        QuestByID(id).RewardItem = ItemByID(iid);
+                    }
+
+                    
+
+                }
                 
-                // Connections
+                // Populate Location connections, vendors, monsters, quests
                 foreach (XmlNode node in worldData.SelectNodes("/World/Locations/Zone"))
                 {
                     int id = Convert.ToInt32(node.Attributes["ID"].Value);

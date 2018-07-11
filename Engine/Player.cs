@@ -243,6 +243,25 @@ namespace Engine
             return true;
         }
 
+        public bool IsInRequiredLocation (Quest quest)
+        {
+            if (quest.RequiredLocation.ID == CurrentLocation.ID || quest.RequiredLocation == null)
+                return true;
+
+            return false;
+        }
+
+        public bool LocationRequiredByQuest (Location loc)
+        {
+            foreach (PlayerQuest pq in Quests)
+            {
+                if (pq.Details.RequiredLocation.ID == loc.ID)
+                    return true;
+                
+            }
+            return false;
+        }
+
         public void RemoveQuestCompletionItems(Quest quest)
         {
             foreach (QuestCompletionItem qci in quest.QuestCompletionItems)
@@ -262,8 +281,7 @@ namespace Engine
             if (item == null)
             {
                 // They didn't have the item, so add it to their inventory
-                Inventory.Add(new InventoryItem(
-                itemToAdd, quantity));
+                Inventory.Add(new InventoryItem(itemToAdd, quantity));
             }
             else
             {
@@ -369,9 +387,12 @@ namespace Engine
                     {
                         // See if the player has all the items needed to complete the quest
                         bool playerHasAllItemsToCompleteQuest = HasAllQuestCompletionItems(newLocation.QuestAvailableHere);
+                        // See if the player is in the right location to complete the quest
+                        bool playerIsInRequiredLocation = IsInRequiredLocation(newLocation.QuestAvailableHere);
+
 
                         // The player has all items required to complete the quest
-                        if (playerHasAllItemsToCompleteQuest)
+                        if (playerHasAllItemsToCompleteQuest && playerIsInRequiredLocation)
                         {
                             // Display message
                             RaiseMessage("");
@@ -380,17 +401,20 @@ namespace Engine
                             // Remove quest items from inventory
                             RemoveQuestCompletionItems(newLocation.QuestAvailableHere);
 
+                            Item rewardItem = newLocation.QuestAvailableHere.RewardItem;
+
                             // Give quest rewards
                             RaiseMessage("You receive: ");
                             RaiseMessage(newLocation.QuestAvailableHere.RewardExperiencePoints + " experience points");
                             RaiseMessage(newLocation.QuestAvailableHere.RewardGold + " gold");
-                            RaiseMessage(newLocation.QuestAvailableHere.RewardItem.Name, true);
+                            if (rewardItem != null)
+                                RaiseMessage(rewardItem.Name, true);
 
                             AddExperiencePoints(newLocation.QuestAvailableHere.RewardExperiencePoints);
                             Gold += newLocation.QuestAvailableHere.RewardGold;
 
                             // Add the reward item to the player's inventory
-                            AddItemToInventory(newLocation.QuestAvailableHere.RewardItem);
+                            AddItemToInventory(rewardItem);
 
                             // Mark the quest as completed
                             MarkQuestCompleted(newLocation.QuestAvailableHere);
@@ -422,6 +446,53 @@ namespace Engine
                     Quests.Add(new PlayerQuest(newLocation.QuestAvailableHere));
                 }
             }
+
+            // Is the location required by any quest?
+            if (LocationRequiredByQuest(newLocation))
+            {
+                Quest q = World.QuestByRequiredLocationID(newLocation.ID);
+                bool playerAlreadyCompletedQuest = CompletedThisQuest(q);
+
+                // If the player has not completed the quest yet
+                if (!playerAlreadyCompletedQuest)
+                {
+                    // See if the player has all the items needed to complete the quest
+                    bool playerHasAllItemsToCompleteQuest = HasAllQuestCompletionItems(q);
+
+                    // The player has all items required to complete the quest
+                    if (playerHasAllItemsToCompleteQuest)
+                    {
+                        // Display message
+                        RaiseMessage("");
+                        RaiseMessage("You complete the '" + q.Name + "' quest.");
+
+                        // Remove quest items from inventory
+                        RemoveQuestCompletionItems(q);
+
+                        Item rewardItem = q.RewardItem;
+
+                        // Give quest rewards
+                        RaiseMessage("You receive: ");
+                        RaiseMessage(q.RewardExperiencePoints + " experience points");
+                        RaiseMessage(q.RewardGold + " gold");
+                        if (rewardItem != null)
+                            RaiseMessage(rewardItem.Name, true);
+
+                        AddExperiencePoints(q.RewardExperiencePoints);
+                        Gold += q.RewardGold;
+
+                        // Add the reward item to the player's inventory
+                        if (rewardItem != null)
+                            AddItemToInventory(rewardItem);
+
+                        // Mark the quest as completed
+                        MarkQuestCompleted(q);
+                    }
+                }
+                
+            }
+
+
             // Does the location have a monster?
             if (newLocation.MonsterLivingHere != null)
             {
