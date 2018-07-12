@@ -10,6 +10,10 @@ namespace SuperAdventure
 {
     // TODO create save slots
     // TODO create Load Game screen
+    // TODO bear adopts family
+    // TODO bear cave
+    // TODO raccoon
+    // TODO self image meter (other dad's are being more/less successful than you)
     public partial class SuperAdventure : Form
     {
 
@@ -160,9 +164,12 @@ namespace SuperAdventure
 
                 btnTrade.Visible = (_player.CurrentLocation.VendorWorkingHere != null);
             }
+            if (propertyChangedEventArgs.PropertyName == "Water")
+            {
+                // TODO set water meter
+            }
 
-            
-        }
+            }
 
         private void btnNorth_Click(object sender, EventArgs e)
         {

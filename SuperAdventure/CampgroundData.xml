@@ -6,7 +6,10 @@
       <LocationToEast ID="0" />
       <LocationToSouth  ID="0" />
       <LocationToWest ID="0" />
-      <Quest ID="1" />
+      <Quests>
+        <Quest ID="1" />  
+      </Quests>
+      
     </Zone>
     <Zone ID="2" Name="Road (North/South)" Description="A two-lane road leading further into the campground. To the south is the entry gate.">
       <LocationToNorth ID="3" />
@@ -205,6 +208,15 @@
       <LocationToEast ID="16" />
       <LocationToSouth ID="0" />
       <LocationToWest ID="0" />
+      <Quests>
+        <Quest ID="2" />
+        <Quest ID="3" />
+        <Quest ID="4" />
+        <Quest ID="5" />
+        <Quest ID="6" />
+        <Quest ID="7" />
+        <Quest ID="8" />
+      </Quests>
     </Zone>
     <Zone ID="34" Name="Site #5" Description="A campsite." >
       <LocationToNorth ID="0" />
@@ -287,13 +299,85 @@
         <RequiredItem ID="2" Quantity="5" />
       </RequiredItems>
       <RequiredLocation>
+        <Location ID="33" />
       </RequiredLocation>
       <RewardExperience>20</RewardExperience>
       <RewardGold>20</RewardGold>
       <RewardItems>
       </RewardItems>
     </PlayerQuest>
-    
+    <PlayerQuest ID="3" Name="Find sleeping bags." Description="Find some sleeping bags so that your family doesn't freeze due to your forgetfulness.">
+      <RequiredItems>
+        <RequiredItem ID="4" Quantity ="4" />
+      </RequiredItems>
+      <RequiredLocation>
+        <Location ID="33" />
+      </RequiredLocation>
+      <RewardExperience>20</RewardExperience>
+      <RewardGold>20</RewardGold>
+      <RewardItems>
+      </RewardItems>
+    </PlayerQuest>
+    <PlayerQuest ID="4" Name="Find a tent." Description="Find a tent so that your family is more comfortable.">
+      <RequiredItems>
+        <RequiredItem ID="5" Quantity ="1" />
+      </RequiredItems>
+      <RequiredLocation>
+        <Location ID="33" />
+      </RequiredLocation>
+      <RewardExperience>20</RewardExperience>
+      <RewardGold>20</RewardGold>
+      <RewardItems>
+      </RewardItems>
+    </PlayerQuest>
+    <PlayerQuest ID="5" Name="Find some food." Description="Find some food so your family doesn't go hungry due to your negligence.">
+      <RequiredItems>
+        <RequiredItem ID="6" Quantity ="4" />
+      </RequiredItems>
+      <RequiredLocation>
+        <Location ID="33" />
+      </RequiredLocation>
+      <RewardExperience>20</RewardExperience>
+      <RewardGold>20</RewardGold>
+      <RewardItems>
+      </RewardItems>
+    </PlayerQuest>
+    <PlayerQuest ID="6" Name="Find a barbecue." Description="Find a barbecue so you can have something other than veggies and fruit.">
+      <RequiredItems>
+        <RequiredItem ID="7" Quantity ="1" />
+      </RequiredItems>
+      <RequiredLocation>
+        <Location ID="33" />
+      </RequiredLocation>
+      <RewardExperience>20</RewardExperience>
+      <RewardGold>20</RewardGold>
+      <RewardItems>
+      </RewardItems>
+    </PlayerQuest>
+    <PlayerQuest ID="7" Name="Find a radio." Description="Find a radio so your family can at least listen to some music.">
+      <RequiredItems>
+        <RequiredItem ID="8" Quantity ="1" />
+      </RequiredItems>
+      <RequiredLocation>
+        <Location ID="33" />
+      </RequiredLocation>
+      <RewardExperience>20</RewardExperience>
+      <RewardGold>20</RewardGold>
+      <RewardItems>
+      </RewardItems>
+    </PlayerQuest>
+    <PlayerQuest ID="8" Name="Find a sports ball." Description="Find something fun for your family to do.">
+      <RequiredItems>
+        <RequiredItem ID="9" Quantity ="1" />
+      </RequiredItems>
+      <RequiredLocation>
+        <Location ID="33" />
+      </RequiredLocation>
+      <RewardExperience>20</RewardExperience>
+      <RewardGold>20</RewardGold>
+      <RewardItems>
+      </RewardItems>
+    </PlayerQuest>
   </Quests>
   <Items>
 
@@ -306,33 +390,23 @@
     <Item ID="3" Name="Meat" Plural="Meat" Description="" >
       <Price>1</Price>
     </Item>
-    <Item ID="4" Name="Pice of fur" Plural="Pieces of fur" Description="" >
-      <Price>1</Price>
+    <Item ID="4" Name="Sleeping Bag" Plural="Sleeping Bags" Description="" >
+      <Price>10</Price>
     </Item>
-    <Item ID="5" Name="Snake fang" Plural="Snake fangs" Description="" >
-      <Price>1</Price>
+    <Item ID="5" Name="Tent" Plural="Tents" Description="" >
+      <Price>50</Price>
     </Item>
-    <Item ID="6" Name="Snakeskin" Plural="Snakeskins" Description="" >
-      <Price>1</Price>
+    <Item ID="6" Name="Vegetable" Plural="Vegetables" Description="" >
+      <Price>5</Price>
     </Item>
-    <Item ID="7" Name="Club" Plural="Clubs" Description="" >
-      <MinimumDamage>3</MinimumDamage>
-      <MaximumDamage>10</MaximumDamage>
-      <Price>25</Price>
+    <Item ID="7" Name="Barbecue" Plural="Barbecues" Description="" >
+      <Price>75</Price>
     </Item>
-    <Item ID="8" Name="Acid flask" Plural="Acid Flasks" Description="" >
-      <MinimumDamage>5</MinimumDamage>
-      <MaximumDamage>10</MaximumDamage>
+    <Item ID="8" Name="Radio" Plural="Radios" Description="" >
       <Price>30</Price>
     </Item>
-    <Item ID="9" Name="Spider fang" Plural="Spider fangs" Description="" >
-      <Price>1</Price>
-    </Item>
-    <Item ID="10" Name="Spider silk" Plural="Spider silks" Description="" >
-      <Price>1</Price>
-    </Item>
-    <Item ID="11" Name="Adventurer pass" Plural="Adventurer passes" Description="" >
-      <Price>-1</Price>
+    <Item ID="9" Name="Sports ball" Plural="Sports balls" Description="" >
+      <Price>2</Price>
     </Item>
   </Items>
   <Monsters>

@@ -8,7 +8,7 @@ using System.Drawing;
 namespace Engine
 {
     // TODO add list of items to locations, these can be picked up (like buying without spending money)
-    
+
     public class Location
     {
         public int ID { get; set; }
@@ -16,6 +16,7 @@ namespace Engine
         public string Description { get; set; }
         public Item ItemRequiredToEnter { get; set; }
         public Quest QuestAvailableHere { get; set; }
+        public List<Quest> QuestsAvailableHere { get; set; }
         public Monster MonsterLivingHere { get; set; }
         public Location LocationToNorth { get; set; }
         public Location LocationToEast { get; set; }
@@ -34,7 +35,7 @@ namespace Engine
             ItemRequiredToEnter = itemRequiredToEnter;
             QuestAvailableHere = questAvailableHere;
             MonsterLivingHere = monsterLivingHere;
-          
+            QuestsAvailableHere = new List<Quest>();
         }
 
 

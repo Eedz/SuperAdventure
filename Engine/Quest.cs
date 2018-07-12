@@ -2,6 +2,7 @@
 
 namespace Engine
 {
+    // TODO add prerequisite quest
     public class Quest
     {
         public int ID { get; set; }

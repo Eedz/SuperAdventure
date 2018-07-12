@@ -12,8 +12,19 @@ namespace Engine
         private int _experiencePoints;
         private Location _currentLocation;
         private Monster _currentMonster;
+        private int _waterLevel;
 
         public event EventHandler<MessageEventArgs> OnMessage;
+
+        public int Water
+        {
+            get { return _waterLevel; }
+            set
+            {
+                _waterLevel = value;
+                OnPropertyChanged("Water");
+            }
+        }
 
         public int Gold
         {
@@ -356,7 +367,7 @@ namespace Engine
 
         public void MoveTo(Location newLocation)
         {
-            //Does the location have any required items
+            // Does the location have any required items
             if (!HasRequiredItemToEnterThisLocation(newLocation))
             {
                 RaiseMessage("You must have a " + newLocation.ItemRequiredToEnter.Name + " to enter this location.");
@@ -372,12 +383,12 @@ namespace Engine
             // Completely heal the player
             CurrentHitPoints = MaximumHitPoints;
 
-            // Does the location have a quest?
-            if (newLocation.QuestAvailableHere != null)
+            // Does the location have a quest? 
+            foreach(Quest q in newLocation.QuestsAvailableHere)
             {
                 // See if the player already has the quest, and if they've completed it
-                bool playerAlreadyHasQuest = HasThisQuest(newLocation.QuestAvailableHere);
-                bool playerAlreadyCompletedQuest = CompletedThisQuest(newLocation.QuestAvailableHere);
+                bool playerAlreadyHasQuest = HasThisQuest(q);
+                bool playerAlreadyCompletedQuest = CompletedThisQuest(q);
 
                 // See if the player already has the quest
                 if (playerAlreadyHasQuest)
@@ -385,10 +396,11 @@ namespace Engine
                     // If the player has not completed the quest yet
                     if (!playerAlreadyCompletedQuest)
                     {
+                        // TODO Refactor into a method to check for quest completion and give rewards
                         // See if the player has all the items needed to complete the quest
-                        bool playerHasAllItemsToCompleteQuest = HasAllQuestCompletionItems(newLocation.QuestAvailableHere);
+                        bool playerHasAllItemsToCompleteQuest = HasAllQuestCompletionItems(q);
                         // See if the player is in the right location to complete the quest
-                        bool playerIsInRequiredLocation = IsInRequiredLocation(newLocation.QuestAvailableHere);
+                        bool playerIsInRequiredLocation = IsInRequiredLocation(q);
 
 
                         // The player has all items required to complete the quest
@@ -396,28 +408,29 @@ namespace Engine
                         {
                             // Display message
                             RaiseMessage("");
-                            RaiseMessage("You complete the '" + newLocation.QuestAvailableHere.Name + "' quest.");
+                            RaiseMessage("You complete the '" + q.Name + "' quest.");
 
                             // Remove quest items from inventory
-                            RemoveQuestCompletionItems(newLocation.QuestAvailableHere);
+                            RemoveQuestCompletionItems(q);
 
-                            Item rewardItem = newLocation.QuestAvailableHere.RewardItem;
+                            Item rewardItem = q.RewardItem;
 
                             // Give quest rewards
                             RaiseMessage("You receive: ");
-                            RaiseMessage(newLocation.QuestAvailableHere.RewardExperiencePoints + " experience points");
-                            RaiseMessage(newLocation.QuestAvailableHere.RewardGold + " gold");
+                            RaiseMessage(q.RewardExperiencePoints + " experience points");
+                            RaiseMessage(q.RewardGold + " gold");
                             if (rewardItem != null)
                                 RaiseMessage(rewardItem.Name, true);
 
-                            AddExperiencePoints(newLocation.QuestAvailableHere.RewardExperiencePoints);
-                            Gold += newLocation.QuestAvailableHere.RewardGold;
+                            AddExperiencePoints(q.RewardExperiencePoints);
+
+                            Gold += q.RewardGold;
 
                             // Add the reward item to the player's inventory
                             AddItemToInventory(rewardItem);
 
                             // Mark the quest as completed
-                            MarkQuestCompleted(newLocation.QuestAvailableHere);
+                            MarkQuestCompleted(q);
                         }
                     }
                 }
@@ -426,10 +439,10 @@ namespace Engine
                     // The player does not already have the quest
 
                     // Display the messages
-                    RaiseMessage("You receive the " + newLocation.QuestAvailableHere.Name + " quest.");
-                    RaiseMessage(newLocation.QuestAvailableHere.Description);
+                    RaiseMessage("You receive the " + q.Name + " quest.");
+                    RaiseMessage(q.Description);
                     RaiseMessage("To complete it, return with:");
-                    foreach (QuestCompletionItem qci in newLocation.QuestAvailableHere.QuestCompletionItems)
+                    foreach (QuestCompletionItem qci in q.QuestCompletionItems)
                     {
                         if (qci.Quantity == 1)
                         {
@@ -443,7 +456,7 @@ namespace Engine
                     RaiseMessage("");
 
                     // Add the quest to the player's quest list
-                    Quests.Add(new PlayerQuest(newLocation.QuestAvailableHere));
+                    Quests.Add(new PlayerQuest(q));
                 }
             }
 
@@ -787,3 +800,4 @@ namespace Engine
         }
     }
 }
+

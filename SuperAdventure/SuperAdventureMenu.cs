@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using Engine;
 
 namespace SuperAdventure
 {
@@ -20,6 +21,18 @@ namespace SuperAdventure
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
+            try
+            {
+                LoadWorld();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("CampgroundData.xml failed to load.");
+                Application.Exit();
+                return;
+            }
+            
+           
             SuperAdventure mainForm = new SuperAdventure(DEFAULT_PLAYER_DATA_FILE_NAME);
             mainForm.Show();
             //this.Hide();
@@ -27,6 +40,7 @@ namespace SuperAdventure
 
         private void btnLoadGame_Click(object sender, EventArgs e)
         {
+            LoadWorld();
             SuperAdventure mainForm = new SuperAdventure(PLAYER_DATA_FILE_NAME);
             mainForm.Show();
             //this.Hide();
@@ -35,6 +49,11 @@ namespace SuperAdventure
         private void btnQuit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void LoadWorld()
+        {
+            World.ItemByID(1);
         }
         
     }
