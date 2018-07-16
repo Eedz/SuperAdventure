@@ -149,7 +149,7 @@ namespace SuperAdventure
         private void dgvVendorItems_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // The 4th column (ColumnIndex = 3) has the "Buy 1" button.
-            if (e.ColumnIndex == 3)
+            if (e.ColumnIndex == 4)
             {
                 // This gets the ID value of the item, from the hidden 1st column
                 var itemID = dgvVendorItems.Rows[e.RowIndex].Cells[0].Value;

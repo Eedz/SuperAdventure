@@ -402,35 +402,10 @@ namespace Engine
                         // See if the player is in the right location to complete the quest
                         bool playerIsInRequiredLocation = IsInRequiredLocation(q);
 
-
                         // The player has all items required to complete the quest
                         if (playerHasAllItemsToCompleteQuest && playerIsInRequiredLocation)
                         {
-                            // Display message
-                            RaiseMessage("");
-                            RaiseMessage("You complete the '" + q.Name + "' quest.");
-
-                            // Remove quest items from inventory
-                            RemoveQuestCompletionItems(q);
-
-                            Item rewardItem = q.RewardItem;
-
-                            // Give quest rewards
-                            RaiseMessage("You receive: ");
-                            RaiseMessage(q.RewardExperiencePoints + " experience points");
-                            RaiseMessage(q.RewardGold + " gold");
-                            if (rewardItem != null)
-                                RaiseMessage(rewardItem.Name, true);
-
-                            AddExperiencePoints(q.RewardExperiencePoints);
-
-                            Gold += q.RewardGold;
-
-                            // Add the reward item to the player's inventory
-                            AddItemToInventory(rewardItem);
-
-                            // Mark the quest as completed
-                            MarkQuestCompleted(q);
+                            ResolveQuest(q);
                         }
                     }
                 }
@@ -475,31 +450,7 @@ namespace Engine
                     // The player has all items required to complete the quest
                     if (playerHasAllItemsToCompleteQuest)
                     {
-                        // Display message
-                        RaiseMessage("");
-                        RaiseMessage("You complete the '" + q.Name + "' quest.");
-
-                        // Remove quest items from inventory
-                        RemoveQuestCompletionItems(q);
-
-                        Item rewardItem = q.RewardItem;
-
-                        // Give quest rewards
-                        RaiseMessage("You receive: ");
-                        RaiseMessage(q.RewardExperiencePoints + " experience points");
-                        RaiseMessage(q.RewardGold + " gold");
-                        if (rewardItem != null)
-                            RaiseMessage(rewardItem.Name, true);
-
-                        AddExperiencePoints(q.RewardExperiencePoints);
-                        Gold += q.RewardGold;
-
-                        // Add the reward item to the player's inventory
-                        if (rewardItem != null)
-                            AddItemToInventory(rewardItem);
-
-                        // Mark the quest as completed
-                        MarkQuestCompleted(q);
+                        ResolveQuest(q);
                     }
                 }
                 
@@ -528,7 +479,40 @@ namespace Engine
             }
         }
 
-        public void UseWeapon(Weapon weapon)
+        // The player has all items required to complete the quest
+        private void ResolveQuest(Quest q)
+        {
+            
+            // Display message
+            RaiseMessage("");
+            RaiseMessage("You complete the '" + q.Name + "' quest.");
+
+            // Remove quest items from inventory
+            RemoveQuestCompletionItems(q);
+
+            Item rewardItem = q.RewardItem;
+
+            // Give quest rewards
+            RaiseMessage("You receive: ");
+            RaiseMessage(q.RewardExperiencePoints + " experience points");
+            RaiseMessage(q.RewardGold + " gold");
+            if (rewardItem != null)
+            {
+                RaiseMessage(rewardItem.Name, true);
+                // Add the reward item to the player's inventory
+                AddItemToInventory(rewardItem);
+            }
+
+            AddExperiencePoints(q.RewardExperiencePoints);
+
+            Gold += q.RewardGold;
+
+            // Mark the quest as completed
+            MarkQuestCompleted(q);
+            
+        }
+
+    public void UseWeapon(Weapon weapon)
         {
             // Determine the amount of damage to do to the monster
             int damageToMonster = RandomNumberGenerator.NumberBetween(weapon.MinimumDamage, weapon.MaximumDamage);
