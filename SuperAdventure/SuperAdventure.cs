@@ -12,7 +12,6 @@ namespace SuperAdventure
     // TODO create Load Game screen
     // TODO bear adopts family
     // TODO bear cave
-    // TODO raccoon
     // TODO self image meter (other dad's are being more/less successful than you)
     public partial class SuperAdventure : Form
     {
@@ -33,6 +32,7 @@ namespace SuperAdventure
             lblGold.DataBindings.Add("Text", _player, "Gold");
             lblExperience.DataBindings.Add("Text", _player, "ExperiencePoints");
             lblLevel.DataBindings.Add("Text", _player, "Level");
+            barWater.DataBindings.Add("Value", _player, "Water");
 
             dgvInventory.RowHeadersVisible = false;
             dgvInventory.AutoGenerateColumns = false;
@@ -338,6 +338,16 @@ namespace SuperAdventure
             {
                 btn.Text = "";
                 btn.Image = Properties.Resources.RoadAll;
+            }
+            else if (loc.Name.Equals("Front Gate"))
+            {
+                btn.Text = "";
+                btn.Image = Properties.Resources.Gatehouse;
+            }
+            else if (loc.Name.Contains("Site"))
+            {
+                btn.Text = "";
+                btn.Image = Properties.Resources.Campsite;
             }
             else
             {

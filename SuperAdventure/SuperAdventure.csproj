@@ -115,11 +115,14 @@
     <None Include="Resources\RoadNW.png" />
     <None Include="Resources\RoadSE.png" />
     <None Include="Resources\RoadSW.png" />
+    <None Include="Resources\Gatehouse.png" />
+    <None Include="Resources\Campsite.png" />
     <Content Include="WorldData.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="CampgroundData.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

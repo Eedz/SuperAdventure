@@ -80,6 +80,7 @@
             this.btnMap20 = new System.Windows.Forms.Button();
             this.btnMap30 = new System.Windows.Forms.Button();
             this.btnMap40 = new System.Windows.Forms.Button();
+            this.barWater = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuests)).BeginInit();
             this.pnlWorldMap.SuspendLayout();
@@ -613,11 +614,21 @@
             this.btnMap40.Text = "??";
             this.btnMap40.UseVisualStyleBackColor = true;
             // 
+            // barWater
+            // 
+            this.barWater.Location = new System.Drawing.Point(827, 62);
+            this.barWater.Name = "barWater";
+            this.barWater.Size = new System.Drawing.Size(144, 24);
+            this.barWater.Step = 1;
+            this.barWater.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.barWater.TabIndex = 26;
+            // 
             // SuperAdventure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1077, 651);
+            this.Controls.Add(this.barWater);
             this.Controls.Add(this.pnlWorldMap);
             this.Controls.Add(this.lblSouth);
             this.Controls.Add(this.lblEast);
@@ -710,6 +721,7 @@
         private System.Windows.Forms.Button btnMap30;
         private System.Windows.Forms.Button btnMap40;
         private System.Windows.Forms.Button btnTrade;
+        private System.Windows.Forms.ProgressBar barWater;
     }
 }
 

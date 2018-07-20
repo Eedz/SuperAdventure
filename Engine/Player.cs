@@ -94,7 +94,7 @@ namespace Engine
         {
             Gold = gold;
             ExperiencePoints = experiencePoints;
-            
+            Water = 100;
             Inventory = new BindingList<InventoryItem>();
             Quests = new BindingList<PlayerQuest>();
             Atlas = new WorldMap();
@@ -382,6 +382,9 @@ namespace Engine
 
             // Completely heal the player
             CurrentHitPoints = MaximumHitPoints;
+
+            // Subtract some water
+            Water -= 1;
 
             // Does the location have a quest? 
             foreach(Quest q in newLocation.QuestsAvailableHere)
