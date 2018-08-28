@@ -249,7 +249,7 @@
       <LocationToSouth ID="18" />
       <LocationToWest ID="0" />
       <Vendors>
-        <Vendor ID="2" />
+        <Vendor ID="4" />
       </Vendors>
     </Zone>
     <Zone ID="39" Name="Site #10" Description="A campsite." >
@@ -269,6 +269,9 @@
       <LocationToEast ID="0" />
       <LocationToSouth ID="0" />
       <LocationToWest ID="25" />
+      <Vendors>
+        <Vendor ID="2" />
+      </Vendors>
     </Zone>
     <Zone ID="42" Name="Beach" Description="Families laugh and frolic in the waves." >
       <LocationToNorth ID="43" />
@@ -381,6 +384,45 @@
       <RewardItems>
       </RewardItems>
     </PlayerQuest>
+    <PlayerQuest ID="9" Name="Trade domestic beer for food." Description="Trade Dan some beer for some of his food.">
+      <RequiredItems>
+        <RequiredItem ID="20" Quantity ="1" />
+      </RequiredItems>
+      <RequiredLocation>
+        <Location ID="38" />
+      </RequiredLocation>
+      <RewardExperience>20</RewardExperience>
+      <RewardGold>0</RewardGold>
+      <RewardItems>
+        <RewardItem ID="26" Quantity ="2" />
+      </RewardItems>
+    </PlayerQuest>
+    <PlayerQuest ID="10" Name="Trade imported beer for food." Description="Trade Dan some beer for some of his food.">
+      <RequiredItems>
+        <RequiredItem ID="21" Quantity ="1" />
+      </RequiredItems>
+      <RequiredLocation>
+        <Location ID="38" />
+      </RequiredLocation>
+      <RewardExperience>20</RewardExperience>
+      <RewardGold>0</RewardGold>
+      <RewardItems>
+        <RewardItem ID="24" Quantity ="1" />
+      </RewardItems>
+    </PlayerQuest>
+    <PlayerQuest ID="11" Name="Trade premium beer for food." Description="Trade Dan some beer for some of his food.">
+      <RequiredItems>
+        <RequiredItem ID="22" Quantity ="1" />
+      </RequiredItems>
+      <RequiredLocation>
+        <Location ID="38" />
+      </RequiredLocation>
+      <RewardExperience>20</RewardExperience>
+      <RewardGold>0</RewardGold>
+      <RewardItems>
+        <RewardItem ID="33" Quantity ="1" />
+      </RewardItems>
+    </PlayerQuest>
   </Quests>
   <Items>
 
@@ -395,15 +437,19 @@
     </Item>
     <Item ID="4" Name="Sleeping Bag" Plural="Sleeping Bags" Description="" >
       <Price>10</Price>
+      <ComfortLevel>20</ComfortLevel>
     </Item>
     <Item ID="5" Name="Tent" Plural="Tents" Description="" >
       <Price>50</Price>
+      <ComfortLevel>50</ComfortLevel>
+      <HappinessLevel>25</HappinessLevel>
     </Item>
     <Item ID="6" Name="Vegetable" Plural="Vegetables" Description="" >
       <Price>5</Price>
     </Item>
     <Item ID="7" Name="Barbecue" Plural="Barbecues" Description="" >
       <Price>75</Price>
+      <FoodBost>10</FoodBost>
     </Item>
     <Item ID="8" Name="Radio" Plural="Radios" Description="" >
       <Price>30</Price>
@@ -413,6 +459,120 @@
     </Item>
     <Item ID="10" Name="Bottle of Water" Plural="Bottles of Water" Description="">
       <Price>5</Price>
+    </Item>
+    <Item ID="11" Name="Cup" Plural="Cups" Description="">
+      <Price>5</Price>
+      <Volume>5</Volume>
+    </Item>
+    <Item ID="12" Name="Jug" Plural="Jugs" Description="">
+      <Price>5</Price>
+      <Volume>25</Volume>
+    </Item>
+    <Item ID="13" Name="Car" Plural="Cars" Description="">
+      <Price>5000</Price>
+      <ComfortLevel>15</ComfortLevel>
+      <HappinessLevel>0</HappinessLevel>
+      <Capacity>50</Capacity>
+    </Item>
+    <Item ID="14" Name="Van" Plural="Vans" Description="">
+      <Price>10000</Price>
+      <ComfortLevel>25</ComfortLevel>
+      <HappinessLevel>10</HappinessLevel>
+      <Capacity>50</Capacity>
+    </Item>
+    <Item ID="15" Name="Trailer" Plural="Trailers" Description="">
+      <Price>5</Price>
+      <ComformatLevel>85</ComformatLevel>
+      <HappinessLevel>75</HappinessLevel>
+      <Capacity>100</Capacity>
+    </Item>
+    <Item ID="16" Name="RV" Plural="RVs" Description="">
+      <Price>25000</Price>
+      <ComfortLevel>100</ComfortLevel>
+      <HappinessLevel>100</HappinessLevel>
+      <Capacity>200</Capacity>
+    </Item>
+    <Item ID="17" Name="Blanket" Plural="Blankets" Description="">
+      <Price>15</Price>
+      <ComfortLevel>15</ComfortLevel>
+    </Item>
+    <Item ID="18" Name="Grill" Plural="Grills" Description="">
+      <Price>5</Price>
+      <FoodBoost>5</FoodBoost>
+    </Item>
+    <Item ID="19" Name="Cooler" Plural="Coolers" Description="">
+      <Price>50</Price>
+      <Capacity>50</Capacity>
+    </Item>
+    <Item ID="20" Name="Domestic Beer" Plural="Domestic Beers" Description="">
+      <Price>5</Price>
+    </Item>
+    <Item ID="21" Name="Imported Beer" Plural="Imported Beers" Description="">
+      <Price>7</Price>
+    </Item>
+    <Item ID="22" Name="Premium Beer" Plural="Premium Beers" Description="">
+      <Price>9</Price>
+    </Item>
+    <Item ID="23" Name="Berry" Plural="Berries" Description="">
+      <Price>5</Price>
+      <FoodValue>5</FoodValue>
+      <HappinessValue>1</HappinessValue>
+    </Item>
+    <Item ID="24" Name="Steak" Plural="Steaks" Description="">
+      <Price>25</Price>
+      <FoodValue>25</FoodValue>
+      <HappinessValue>25</HappinessValue>
+    </Item>
+    <Item ID="25" Name="Marshmellow" Plural="Marshmellow" Description="">
+      <Price>6</Price>
+      <FoodValue>3</FoodValue>
+      <HappinessValue>25</HappinessValue>
+    </Item>
+    <Item ID="26" Name="Hot Dog" Plural="Hot Dogs" Description="">
+      <Price>10</Price>
+      <FoodValue>10</FoodValue>
+      <HappinessValue>8</HappinessValue>
+    </Item>
+    <Item ID="27" Name="Cracker" Plural="Crackers" Description="">
+      <Price>10</Price>
+      <FoodValue>10</FoodValue>
+      <HappinessValue>8</HappinessValue>
+    </Item>
+    <Item ID="28" Name="Chocolate" Plural="Chocolates" Description="">
+      <Price>20</Price>
+      <FoodValue>5</FoodValue>
+      <HappinessValue>25</HappinessValue>
+    </Item>
+    <Item ID="29" Name="Fruit" Plural="Fruits" Description="">
+      <Price>15</Price>
+      <FoodValue>15</FoodValue>
+      <HappinessValue>9</HappinessValue>
+    </Item>
+    <Item ID="30" Name="Iced Cream" Plural="Iced Creams" Description="">
+      <Price>20</Price>
+      <FoodValue>5</FoodValue>
+      <HappinessValue>25</HappinessValue>
+    </Item>
+    <Item ID="31" Name="Fish" Plural="Fish" Description="">
+      <Price>20</Price>
+      <FoodValue>20</FoodValue>
+      <HappinessValue>10</HappinessValue>
+    </Item>
+    <Item ID="32" Name="Wild Game" Plural="Wild Game" Description="">
+      <Price>1</Price>
+      <FoodValue>3</FoodValue>
+      <HappinessValue>1</HappinessValue>
+    </Item>
+    <Item ID="33" Name="Bacon" Plural="Bacon" Description="">
+      <Price>25</Price>
+      <FoodValue>16</FoodValue>
+      <HappinessValue>30</HappinessValue>
+    </Item>
+    <Item ID="34" Name="Houseboat" Plural="Houseboats" Description="">
+      <Price>25000</Price>
+      <ComfortLevel>100</ComfortLevel>
+      <HappinessValue>100</HappinessValue>
+      <Capacity>200</Capacity>
     </Item>
   </Items>
   <Monsters>
@@ -434,23 +594,33 @@
     </Monster>
   </Monsters>
   <NPCs>
-    <NPC ID="1" Name="Caleb" CurrentHP="10" MaximumHP="10">
+    <NPC ID="1" Name="Caleb" CurrentHP="10" MaximumHP="10" Description="Firewood Hut Attendant">
       <InventoryItems>
         <InventoryItem ID="2" Quantity="10"/>
       </InventoryItems>
     </NPC>
-    <NPC ID="2" Name="Jack" CurrentHP="10" MaximumHP="10">
+    <NPC ID="2" Name="Jack" CurrentHP="10" MaximumHP="10" Description="Site #11">
       <InventoryItems>
         <InventoryItem ID="2" Quantity="10"/>
       </InventoryItems>
     </NPC>
-    <NPC ID="3" Name="Michelle" CurrentHP="10" MaximumHP="10">
+    <NPC ID="3" Name="Michelle" CurrentHP="10" MaximumHP="10" Description="Store Vendor">
       <InventoryItems>
         <InventoryItem ID="2" Quantity="10"/>
         <InventoryItem ID="3" Quantity="10"/>
         <InventoryItem ID="4" Quantity="10"/>
         <InventoryItem ID="5" Quantity="10"/>
       </InventoryItems>
+    </NPC>
+    <NPC ID="4" Name="Dan" CurrentHP="10" MaximumHP="10" Description="Site #9">
+      <InventoryItems>
+        <InventoryItem ID="2" Quantity="10"/>
+      </InventoryItems>
+      <Quests>
+        <Quest ID="9" />
+        <Quest ID="10" />
+        <Quest ID="11" />
+      </Quests>
     </NPC>
   </NPCs>
 </World>

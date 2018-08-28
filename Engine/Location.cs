@@ -23,6 +23,7 @@ namespace Engine
         public Location LocationToSouth { get; set; }
         public Location LocationToWest { get; set; }
         public Vendor VendorWorkingHere { get; set; }
+        public bool HasWater { get; set; }
 
         //public Point LocationInWorld { get; set; }
 

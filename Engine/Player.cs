@@ -12,11 +12,33 @@ namespace Engine
         private int _experiencePoints;
         private Location _currentLocation;
         private Monster _currentMonster;
-        private int _waterLevel;
+        private double _waterLevel;        // 0 <= water <= 100
+        private int _familyHappiness;   // 0 <= family happiness <= 100
+        private int _fame;              //-100 <= fame <= 100
 
         public event EventHandler<MessageEventArgs> OnMessage;
 
-        public int Water
+        public int Fame
+        {
+            get { return _fame; }
+            set
+            {
+                _fame = value;
+                OnPropertyChanged("Fame");
+            }
+        }
+
+        public int FamilyHappiness
+        {
+            get { return _familyHappiness; }
+            set
+            {
+                _familyHappiness = value;
+                OnPropertyChanged("FamilyHappiness");
+            }
+        }
+
+        public double Water
         {
             get { return _waterLevel; }
             set
@@ -95,6 +117,7 @@ namespace Engine
             Gold = gold;
             ExperiencePoints = experiencePoints;
             Water = 100;
+            FamilyHappiness = 50;
             Inventory = new BindingList<InventoryItem>();
             Quests = new BindingList<PlayerQuest>();
             Atlas = new WorldMap();
@@ -384,7 +407,7 @@ namespace Engine
             CurrentHitPoints = MaximumHitPoints;
 
             // Subtract some water
-            Water -= 1;
+            Water -= 0.5;
 
             // Does the location have a quest? 
             foreach(Quest q in newLocation.QuestsAvailableHere)
@@ -475,6 +498,75 @@ namespace Engine
                 {
                     _currentMonster.LootTable.Add(lootItem);
                 }
+            }
+            else
+            {
+                _currentMonster = null;
+            }
+
+            // check if the vendor has quests
+            if (newLocation.VendorWorkingHere != null)
+            {
+                RaiseMessage("You see " + newLocation.VendorWorkingHere.Name);
+
+                // Make a new monster, using the values from the standard monster in the World.Monster list
+                Vendor v = World.VendorByID(newLocation.VendorWorkingHere.ID);
+
+                foreach(Quest q in v.QuestsAvailable)
+                {
+                    if (World.PlayerMeetsRequirements(q, this))
+                    {
+                        // See if the player already has the quest, and if they've completed it
+                        bool playerAlreadyHasQuest = HasThisQuest(q);
+                        bool playerAlreadyCompletedQuest = CompletedThisQuest(q);
+
+                        // See if the player already has the quest
+                        if (playerAlreadyHasQuest)
+                        {
+                            // If the player has not completed the quest yet
+                            if (!playerAlreadyCompletedQuest)
+                            {
+                                // TODO Refactor into a method to check for quest completion and give rewards
+                                // See if the player has all the items needed to complete the quest
+                                bool playerHasAllItemsToCompleteQuest = HasAllQuestCompletionItems(q);
+                                // See if the player is in the right location to complete the quest
+                                bool playerIsInRequiredLocation = IsInRequiredLocation(q);
+
+                                // The player has all items required to complete the quest
+                                if (playerHasAllItemsToCompleteQuest && playerIsInRequiredLocation)
+                                {
+                                    ResolveQuest(q);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            // The player does not already have the quest
+
+                            // Display the messages
+                            RaiseMessage("You receive the " + q.Name + " quest.");
+                            RaiseMessage(q.Description);
+                            RaiseMessage("To complete it, return with:");
+                            foreach (QuestCompletionItem qci in q.QuestCompletionItems)
+                            {
+                                if (qci.Quantity == 1)
+                                {
+                                    RaiseMessage(qci.Quantity + " " + qci.Details.Name);
+                                }
+                                else
+                                {
+                                    RaiseMessage(qci.Quantity + " " + qci.Details.NamePlural);
+                                }
+                            }
+                            RaiseMessage("");
+
+                            // Add the quest to the player's quest list
+                            Quests.Add(new PlayerQuest(q));
+                        }
+                    }
+                }
+
+                
             }
             else
             {
