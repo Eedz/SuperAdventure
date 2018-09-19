@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.ComponentModel;
 
 namespace Engine
 {
-    // TODO add list of items to locations, these can be picked up (like buying without spending money)
 
     public class Location
     {
@@ -23,6 +23,7 @@ namespace Engine
         public Location LocationToSouth { get; set; }
         public Location LocationToWest { get; set; }
         public Vendor VendorWorkingHere { get; set; }
+        public BindingList<InventoryItem> ItemsAvailableForPickup { get; set; }
 
         //public Point LocationInWorld { get; set; }
 
@@ -36,8 +37,35 @@ namespace Engine
             QuestAvailableHere = questAvailableHere;
             MonsterLivingHere = monsterLivingHere;
             QuestsAvailableHere = new List<Quest>();
+            ItemsAvailableForPickup = new BindingList<InventoryItem>();
         }
 
-
+        public void RemoveItemFromInventory(Item itemToRemove, int quantity = 1)
+        {
+            InventoryItem item = ItemsAvailableForPickup.SingleOrDefault(
+            ii => ii.Details.ID == itemToRemove.ID);
+            if (item == null)
+            {
+                // The item is not in the player's inventory, so ignore it.
+                // We might want to raise an error for this situation
+            }
+            else
+            {
+                // They have the item in their inventory, so decrease the quantity
+                item.Quantity -= quantity;
+                // Don't allow negative quantities. We might want to raise an error for this situation
+                if (item.Quantity < 0)
+                {
+                    item.Quantity = 0;
+                }
+                // If the quantity is zero, remove the item from the list
+                if (item.Quantity == 0)
+                {
+                    ItemsAvailableForPickup.Remove(item);
+                }
+                // Notify the UI that the inventory has changed
+                //RaiseInventoryChangedEvent(itemToRemove);
+            }
+        }
     }
 }

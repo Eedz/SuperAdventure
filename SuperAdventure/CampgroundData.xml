@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <World>
+  <!-- LOCATIONS -->
   <Locations>
     <Zone ID="1" Name="Front Gate" Description="The front gate of the campground. A ranger sits in a booth.">
       <LocationToNorth ID ="2" />
@@ -217,6 +218,9 @@
         <Quest ID="7" />
         <Quest ID="8" />
       </Quests>
+      <PickupItems>
+        <LootItem ID="2" DropRate="1" DefaultItem="False" />
+      </PickupItems>
     </Zone>
     <Zone ID="34" Name="Site #5" Description="A campsite." >
       <LocationToNorth ID="0" />
@@ -283,6 +287,7 @@
       <LocationToWest ID="29" />
     </Zone>
   </Locations>
+  <!-- QUESTS -->
   <Quests>
     <PlayerQuest ID="1" Name="Find your camp site." Description="The kids are restless, your wife is tired. Let's find the campsite and relax.">
       <RequiredItems>
@@ -417,20 +422,20 @@
   </Items>
   <Monsters>
     <Monster ID="1" Name="Rat" MaximumDamage="5" RewardExperiencePoints="3" RewardGold="10" CurrentHP="3" MaximumHP="3" >
-      <LootIem ID="2" DropRate="75" DeafultItem="False" />
-      <LootIem ID="3" DropRate="75" DeafultItem="True" />
+      <LootIem ID="2" DropRate="75" DefaultItem="False" />
+      <LootIem ID="3" DropRate="75" DefaultItem="True" />
     </Monster>
     <Monster ID="2" Name="Snake" MaximumDamage="5" RewardExperiencePoints="3" RewardGold="10" CurrentHP="3" MaximumHP="3" >
-      <LootIem ID="4" DropRate="75" DeafultItem="False" />
-      <LootIem ID="5" DropRate="75" DeafultItem="True" />
+      <LootIem ID="4" DropRate="75" DefaultItem="False" />
+      <LootIem ID="5" DropRate="75" DefaultItem="True" />
     </Monster>
     <Monster ID="3" Name="Giant spider" MaximumDamage="20" RewardExperiencePoints="5" RewardGold="40" CurrentHP="10" MaximumHP="10" >
-      <LootIem ID="8" DropRate="75" DeafultItem="True" />
-      <LootIem ID="9" DropRate="75" DeafultItem="False" />
+      <LootIem ID="8" DropRate="75" DefaultItem="True" />
+      <LootIem ID="9" DropRate="75" DefaultItem="False" />
     </Monster>
     <Monster ID="4" Name="Racoon" MaximumDamage="5" RewardExperiencePoints="3" RewardGold="10" CurrentHP="5" MaximumHP="5" >
-      <LootIem ID="8" DropRate="75" DeafultItem="True" />
-      <LootIem ID="9" DropRate="75" DeafultItem="False" />
+      <LootIem ID="8" DropRate="75" DefaultItem="True" />
+      <LootIem ID="9" DropRate="75" DefaultItem="False" />
     </Monster>
   </Monsters>
   <NPCs>

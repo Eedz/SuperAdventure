@@ -157,7 +157,7 @@ namespace Engine
                         {
                             int lid = Convert.ToInt32(child.Attributes["ID"].Value);
                             int dropRate = Convert.ToInt32(child.Attributes["DropRate"].Value);
-                            bool defaultItem = Convert.ToBoolean(child.Attributes["DeafultItem"].Value);
+                            bool defaultItem = Convert.ToBoolean(child.Attributes["DefaultItem"].Value);
                             MonsterByID(id).LootTable.Add(new LootItem(ItemByID(lid), dropRate, defaultItem));
                         }
                     }
@@ -201,6 +201,18 @@ namespace Engine
                         foreach (XmlNode item in node["ItemsRequired"])
                         {
                             LocationByID(id).ItemRequiredToEnter = ItemByID(Convert.ToInt32(item.Attributes["ID"].Value));
+                        }
+                    }
+                    catch { }
+
+                    try
+                    {
+                        foreach (XmlNode item in node["PickupItems"])
+                        {
+                            int lid = Convert.ToInt32(item.Attributes["ID"].Value);
+                            int dropRate = Convert.ToInt32(item.Attributes["DropRate"].Value);
+                            bool defaultItem = Convert.ToBoolean(item.Attributes["DefaultItem"].Value);
+                            LocationByID(id).ItemsAvailableForPickup.Add(new InventoryItem(ItemByID(lid), dropRate));
                         }
                     }
                     catch { }

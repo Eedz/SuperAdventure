@@ -59,6 +59,12 @@
     <Compile Include="SuperAdventureMenu.Designer.cs">
       <DependentUpon>SuperAdventureMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="LootScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LootScreen.Designer.cs">
+      <DependentUpon>LootScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="TradingScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SuperAdventureMenu.resx">
       <DependentUpon>SuperAdventureMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LootScreen.resx">
+      <DependentUpon>LootScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TradingScreen.resx">
       <DependentUpon>TradingScreen.cs</DependentUpon>

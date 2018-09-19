@@ -4,10 +4,10 @@ using System.Windows.Forms;
 
 namespace SuperAdventure
 {
-    public partial class TradingScreen : Form
+    public partial class LootScreen : Form
     {
         private Player _currentPlayer;
-        public TradingScreen(Player player, bool hiddenVendor)
+        public LootScreen(Player player, bool hiddenVendor)
         {
             _currentPlayer = player;
             InitializeComponent();
@@ -91,37 +91,22 @@ namespace SuperAdventure
                 DataPropertyName = "Quantity"
             });
 
-            dgvVendorItems.Columns.Add(new DataGridViewTextBoxColumn
-            {
-                HeaderText = "Price",
-                Width = 35,
-                DefaultCellStyle = rightAlignedCellStyle,
-                DataPropertyName = "Price"
-            });
+            
             
             dgvVendorItems.Columns.Add(new DataGridViewButtonColumn
             {
-                Text = "Buy 1",
+                Text = "Take",
                 UseColumnTextForButtonValue = true,
                 Width = 50,
                 DataPropertyName = "ItemID"
             });
             
-            if (hiddenVendor)
-            {
-                // Bind the location's inventory to the datagridview
-                dgvVendorItems.DataSource = _currentPlayer.CurrentLocation.ItemsAvailableForPickup;
-                // When the user clicks on a row, call this function
-                dgvVendorItems.CellClick += dgvHiddenVendorItems_CellClick;
-            }
-            else
-            {
-                // Bind the vendor's inventory to the datagridview
-                dgvVendorItems.DataSource = _currentPlayer.CurrentLocation.VendorWorkingHere.Inventory;
-
-                // When the user clicks on a row, call this function
-                dgvVendorItems.CellClick += dgvVendorItems_CellClick;
-            }
+            
+            // Bind the location's inventory to the datagridview
+            dgvVendorItems.DataSource = _currentPlayer.CurrentLocation.ItemsAvailableForPickup;
+            // When the user clicks on a row, call this function
+            dgvVendorItems.CellClick += dgvHiddenVendorItems_CellClick;
+            
             
             
             
@@ -159,43 +144,19 @@ namespace SuperAdventure
             }
         }
 
-        private void dgvVendorItems_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            // The 4th column (ColumnIndex = 3) has the "Buy 1" button.
-            if (e.ColumnIndex == 4)
-            {
-                // This gets the ID value of the item, from the hidden 1st column
-                var itemID = dgvVendorItems.Rows[e.RowIndex].Cells[0].Value;
-                
-                // Get the Item object for the selected item row
-                Item itemBeingBought = World.ItemByID(Convert.ToInt32(itemID));
-                
-                // Check if the player has enough gold to buy the item
-                if (_currentPlayer.Gold >= itemBeingBought.Price)
-                {
-                    // Add one of the items to the player's inventory
-                    _currentPlayer.AddItemToInventory(itemBeingBought);
-                    
-                    // Remove the gold to pay for the item
-                    _currentPlayer.Gold -= itemBeingBought.Price;
-                }
-                else
-                {
-                    MessageBox.Show("You do not have enough gold to buy the " + itemBeingBought.Name);
-                }
-            }
-        }
 
         private void dgvHiddenVendorItems_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // The 4th column (ColumnIndex = 3) has the "Buy 1" button.
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 3)
             {
                 // This gets the ID value of the item, from the hidden 1st column
                 var itemID = dgvVendorItems.Rows[e.RowIndex].Cells[0].Value;
 
                 // Get the Item object for the selected item row
                 Item itemBeingBought = World.ItemByID(Convert.ToInt32(itemID));
+
+                _currentPlayer.CurrentLocation.RemoveItemFromInventory(itemBeingBought);
 
                 // Add one of the items to the player's inventory
                 _currentPlayer.AddItemToInventory(itemBeingBought);

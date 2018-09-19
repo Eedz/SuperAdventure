@@ -81,6 +81,7 @@
             this.btnMap30 = new System.Windows.Forms.Button();
             this.btnMap40 = new System.Windows.Forms.Button();
             this.barWater = new System.Windows.Forms.ProgressBar();
+            this.btnPickUpItems = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuests)).BeginInit();
             this.pnlWorldMap.SuspendLayout();
@@ -623,11 +624,22 @@
             this.barWater.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.barWater.TabIndex = 26;
             // 
+            // btnPickUpItems
+            // 
+            this.btnPickUpItems.Location = new System.Drawing.Point(716, 618);
+            this.btnPickUpItems.Name = "btnPickUpItems";
+            this.btnPickUpItems.Size = new System.Drawing.Size(90, 24);
+            this.btnPickUpItems.TabIndex = 27;
+            this.btnPickUpItems.Text = "Pick up Items";
+            this.btnPickUpItems.UseVisualStyleBackColor = true;
+            this.btnPickUpItems.Click += new System.EventHandler(this.btnPickUpItems_Click);
+            // 
             // SuperAdventure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1077, 651);
+            this.Controls.Add(this.btnPickUpItems);
             this.Controls.Add(this.barWater);
             this.Controls.Add(this.pnlWorldMap);
             this.Controls.Add(this.lblSouth);
@@ -722,6 +734,7 @@
         private System.Windows.Forms.Button btnMap40;
         private System.Windows.Forms.Button btnTrade;
         private System.Windows.Forms.ProgressBar barWater;
+        private System.Windows.Forms.Button btnPickUpItems;
     }
 }
 

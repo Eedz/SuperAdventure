@@ -8,6 +8,7 @@ using System.Windows.Forms;
 
 namespace SuperAdventure
 {
+    // TODO Randomly generate monsters and loot for each location when player enters the location
     // TODO create save slots
     // TODO create Load Game screen
     // TODO bear adopts family
@@ -147,6 +148,21 @@ namespace SuperAdventure
                 rtbLocation.Text = _player.CurrentLocation.Name + Environment.NewLine;
                 rtbLocation.Text += _player.CurrentLocation.Description + Environment.NewLine;
 
+                // TODO Randomly generate some loot for this location
+                // Add items to the lootedItems list, comparing a random number to the drop percentage
+                foreach (InventoryItem invItem in _player.CurrentLocation.ItemsAvailableForPickup)
+                {
+                    if (RandomNumberGenerator.NumberBetween(1, 100) <= 33)
+                    {
+
+                        
+                        //_player.CurrentLocation.ItemsAvailableForPickup.Add(new LootItem(invItem.Details, RandomNumberGenerator.NumberBetween(1, 3), false));
+
+                    }
+
+                }
+
+                // Check if a monster is here TODO randomly generate a monster?
                 if (_player.CurrentLocation.MonsterLivingHere == null)
                 {
                     cboWeapons.Visible = false;
@@ -163,11 +179,10 @@ namespace SuperAdventure
                 }
 
                 btnTrade.Visible = (_player.CurrentLocation.VendorWorkingHere != null);
+
+                btnPickUpItems.Visible = (_player.CurrentLocation.ItemsAvailableForPickup.Count != 0);
             }
-            if (propertyChangedEventArgs.PropertyName == "Water")
-            {
-                // TODO set water meter
-            }
+            
 
             }
 
@@ -193,9 +208,16 @@ namespace SuperAdventure
 
         private void btnTrade_Click(object sender, EventArgs e)
         {
-            TradingScreen tradingScreen = new TradingScreen(_player);
+            TradingScreen tradingScreen = new TradingScreen(_player, false);
             tradingScreen.StartPosition = FormStartPosition.CenterParent;
             tradingScreen.ShowDialog(this);
+        }
+
+        private void btnPickUpItems_Click(object sender, EventArgs e)
+        {
+            LootScreen lootScreen = new LootScreen(_player, true);
+            lootScreen.StartPosition = FormStartPosition.CenterParent;
+            lootScreen.ShowDialog(this);
         }
 
         private void UpdateCompass(Location newLocation)
@@ -385,5 +407,7 @@ namespace SuperAdventure
         {
             _player.CurrentWeapon = (Weapon)cboWeapons.SelectedItem;
         }
+
+        
     }
 }
