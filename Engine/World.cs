@@ -109,6 +109,11 @@ namespace Engine
             return null;
         }
 
+        public static bool PlayerMeetsRequirements(Quest q, Player p)
+        {
+            return true;
+        }
+
         public static void CreateWorldFromXmlString(string xmlWorldData)
         {
             try
@@ -143,7 +148,7 @@ namespace Engine
                 foreach (XmlNode node in worldData.SelectNodes("/World/Monsters/Monster"))
                 {
                     int id = Convert.ToInt32(node.Attributes["ID"].Value);
-                    string name = node.Attributes["Name"].Value;                    
+                    string name = node.Attributes["Name"].Value;
                     int maximumDmg = Convert.ToInt32(node.Attributes["MaximumDamage"].Value);
                     int exp = Convert.ToInt32(node.Attributes["RewardExperiencePoints"].Value);
                     int gold = Convert.ToInt32(node.Attributes["RewardGold"].Value);
@@ -184,6 +189,8 @@ namespace Engine
                         }
                     }
                     catch { }
+
+                    
 
                 }
 
@@ -252,15 +259,15 @@ namespace Engine
                         QuestByID(id).RewardItem = ItemByID(iid);
                     }
 
-                    
+
 
                 }
-                
+
                 // Populate Location connections, vendors, monsters, quests
                 foreach (XmlNode node in worldData.SelectNodes("/World/Locations/Zone"))
                 {
                     int id = Convert.ToInt32(node.Attributes["ID"].Value);
-                    
+
                     // Connections
                     LocationByID(id).LocationToNorth = LocationByID(Convert.ToInt32(node["LocationToNorth"].Attributes["ID"].Value));
                     LocationByID(id).LocationToEast = LocationByID(Convert.ToInt32(node["LocationToEast"].Attributes["ID"].Value));
@@ -294,7 +301,7 @@ namespace Engine
                         {
                             LocationByID(id).VendorWorkingHere = VendorByID(Convert.ToInt32(item.Attributes["ID"].Value));
                         }
-                        
+
                     }
                     catch
                     {
@@ -302,13 +309,29 @@ namespace Engine
                     }
                 }
 
-                
+                // Populate vendors quests
+                foreach (XmlNode node in worldData.SelectNodes("/World/NPCs/NPC"))
+                {
+                    int id = Convert.ToInt32(node.Attributes["ID"].Value);
+                    try
+                    {
+                        foreach (XmlNode item in node["Quests"])
+                        {
+                            VendorByID(id).QuestsAvailable.Add(QuestByID(Convert.ToInt32(item.Attributes["ID"].Value)));
+                        }
 
+                    }
+                    catch
+                    {
+
+                    }
+                }
             }
+
             catch (Exception e)
             {
                 throw new Exception("XML Document improperly formatted.", e);
-                
+
                 //If there was an error with the XML data, populate default world 
 
             }

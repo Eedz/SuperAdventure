@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace Engine
 {
@@ -8,12 +9,14 @@ namespace Engine
         public int ID { get; set; }
         public string Name { get; set; }
         public BindingList<InventoryItem> Inventory { get; private set; }
+        public List<Quest> QuestsAvailable;
 
         public Vendor(int id, string name, int currentHitPoints, int maximumHitPoints) : base(currentHitPoints, maximumHitPoints) 
         {
             ID = id;
             Name = name;
             Inventory = new BindingList<InventoryItem>();
+            QuestsAvailable = new List<Quest>();
         }
 
         public void AddItemToInventory(Item itemToAdd, int quantity = 1)

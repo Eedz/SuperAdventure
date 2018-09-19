@@ -34,6 +34,8 @@ namespace SuperAdventure
             lblExperience.DataBindings.Add("Text", _player, "ExperiencePoints");
             lblLevel.DataBindings.Add("Text", _player, "Level");
             barWater.DataBindings.Add("Value", _player, "Water");
+            barFamilyHappiness.DataBindings.Add("Value", _player, "FamilyHappiness");
+            barFame.DataBindings.Add("Value", _player, "Fame");
 
             dgvInventory.RowHeadersVisible = false;
             dgvInventory.AutoGenerateColumns = false;
@@ -131,7 +133,7 @@ namespace SuperAdventure
                 // Show/hide available movement buttons
                 UpdateCompass(_player.CurrentLocation);
 
-                // Update Map
+                // Update Map TODO move this into UpdateMap?
                 foreach (Button c in pnlWorldMap.Controls)
                 {
                     c.Text = "??";
@@ -178,13 +180,20 @@ namespace SuperAdventure
                     btnUsePotion.Visible = _player.Potions.Any();
                 }
 
+                // show trade button
                 btnTrade.Visible = (_player.CurrentLocation.VendorWorkingHere != null);
 
                 btnPickUpItems.Visible = (_player.CurrentLocation.ItemsAvailableForPickup.Count != 0);
+
+                // show loot button
+
+                // show water/drink button
+                btnDrink.Visible = (_player.CurrentLocation.HasWater);
+                
             }
             
 
-            }
+        }
 
         private void btnNorth_Click(object sender, EventArgs e)
         {

@@ -82,6 +82,9 @@
             this.btnMap40 = new System.Windows.Forms.Button();
             this.barWater = new System.Windows.Forms.ProgressBar();
             this.btnPickUpItems = new System.Windows.Forms.Button();
+            this.barFamilyHappiness = new System.Windows.Forms.ProgressBar();
+            this.barFame = new System.Windows.Forms.ProgressBar();
+            this.btnDrink = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuests)).BeginInit();
             this.pnlWorldMap.SuspendLayout();
@@ -617,28 +620,50 @@
             // 
             // barWater
             // 
-            this.barWater.Location = new System.Drawing.Point(827, 62);
+            this.barWater.Location = new System.Drawing.Point(809, 88);
             this.barWater.Name = "barWater";
             this.barWater.Size = new System.Drawing.Size(144, 24);
             this.barWater.Step = 1;
             this.barWater.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.barWater.TabIndex = 26;
             // 
-            // btnPickUpItems
+            // barFamilyHappiness
             // 
-            this.btnPickUpItems.Location = new System.Drawing.Point(716, 618);
-            this.btnPickUpItems.Name = "btnPickUpItems";
-            this.btnPickUpItems.Size = new System.Drawing.Size(90, 24);
-            this.btnPickUpItems.TabIndex = 27;
-            this.btnPickUpItems.Text = "Pick up Items";
-            this.btnPickUpItems.UseVisualStyleBackColor = true;
-            this.btnPickUpItems.Click += new System.EventHandler(this.btnPickUpItems_Click);
+            this.barFamilyHappiness.Location = new System.Drawing.Point(809, 46);
+            this.barFamilyHappiness.Name = "barFamilyHappiness";
+            this.barFamilyHappiness.Size = new System.Drawing.Size(144, 24);
+            this.barFamilyHappiness.Step = 1;
+            this.barFamilyHappiness.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.barFamilyHappiness.TabIndex = 27;
+            // 
+            // barFame
+            // 
+            this.barFame.Location = new System.Drawing.Point(809, 9);
+            this.barFame.Maximum = 200;
+            this.barFame.Name = "barFame";
+            this.barFame.Size = new System.Drawing.Size(144, 24);
+            this.barFame.Step = 1;
+            this.barFame.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.barFame.TabIndex = 28;
+            this.barFame.Value = 100;
+            // 
+            // btnDrink
+            // 
+            this.btnDrink.Location = new System.Drawing.Point(740, 560);
+            this.btnDrink.Name = "btnDrink";
+            this.btnDrink.Size = new System.Drawing.Size(69, 19);
+            this.btnDrink.TabIndex = 29;
+            this.btnDrink.Text = "Drink";
+            this.btnDrink.UseVisualStyleBackColor = true;
             // 
             // SuperAdventure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1077, 651);
+            this.Controls.Add(this.btnDrink);
+            this.Controls.Add(this.barFame);
+            this.Controls.Add(this.barFamilyHappiness);
             this.Controls.Add(this.btnPickUpItems);
             this.Controls.Add(this.barWater);
             this.Controls.Add(this.pnlWorldMap);
@@ -734,6 +759,9 @@
         private System.Windows.Forms.Button btnMap40;
         private System.Windows.Forms.Button btnTrade;
         private System.Windows.Forms.ProgressBar barWater;
+        private System.Windows.Forms.ProgressBar barFamilyHappiness;
+        private System.Windows.Forms.ProgressBar barFame;
+        private System.Windows.Forms.Button btnDrink;
         private System.Windows.Forms.Button btnPickUpItems;
     }
 }

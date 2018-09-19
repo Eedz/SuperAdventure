@@ -24,6 +24,7 @@ namespace Engine
         public Location LocationToWest { get; set; }
         public Vendor VendorWorkingHere { get; set; }
         public BindingList<InventoryItem> ItemsAvailableForPickup { get; set; }
+        public bool HasWater { get; set; }
 
         //public Point LocationInWorld { get; set; }
 
