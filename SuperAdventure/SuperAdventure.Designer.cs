@@ -85,6 +85,9 @@
             this.barFamilyHappiness = new System.Windows.Forms.ProgressBar();
             this.barFame = new System.Windows.Forms.ProgressBar();
             this.btnDrink = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvQuests)).BeginInit();
             this.pnlWorldMap.SuspendLayout();
@@ -620,16 +623,25 @@
             // 
             // barWater
             // 
-            this.barWater.Location = new System.Drawing.Point(809, 88);
+            this.barWater.Location = new System.Drawing.Point(921, 87);
             this.barWater.Name = "barWater";
             this.barWater.Size = new System.Drawing.Size(144, 24);
             this.barWater.Step = 1;
             this.barWater.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.barWater.TabIndex = 26;
             // 
+            // btnPickUpItems
+            // 
+            this.btnPickUpItems.Location = new System.Drawing.Point(667, 620);
+            this.btnPickUpItems.Name = "btnPickUpItems";
+            this.btnPickUpItems.Size = new System.Drawing.Size(75, 23);
+            this.btnPickUpItems.TabIndex = 30;
+            this.btnPickUpItems.Text = "Pick up items";
+            this.btnPickUpItems.Click += new System.EventHandler(this.btnPickUpItems_Click);
+            // 
             // barFamilyHappiness
             // 
-            this.barFamilyHappiness.Location = new System.Drawing.Point(809, 46);
+            this.barFamilyHappiness.Location = new System.Drawing.Point(921, 45);
             this.barFamilyHappiness.Name = "barFamilyHappiness";
             this.barFamilyHappiness.Size = new System.Drawing.Size(144, 24);
             this.barFamilyHappiness.Step = 1;
@@ -638,7 +650,8 @@
             // 
             // barFame
             // 
-            this.barFame.Location = new System.Drawing.Point(809, 9);
+            this.barFame.Location = new System.Drawing.Point(921, 8);
+            this.barFame.MarqueeAnimationSpeed = 0;
             this.barFame.Maximum = 200;
             this.barFame.Name = "barFame";
             this.barFame.Size = new System.Drawing.Size(144, 24);
@@ -656,11 +669,41 @@
             this.btnDrink.Text = "Drink";
             this.btnDrink.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(882, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(33, 13);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Fame";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(830, 46);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 13);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "Family Happiness";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(879, 87);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(36, 13);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "Water";
+            // 
             // SuperAdventure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1077, 651);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnDrink);
             this.Controls.Add(this.barFame);
             this.Controls.Add(this.barFamilyHappiness);
@@ -763,6 +806,9 @@
         private System.Windows.Forms.ProgressBar barFame;
         private System.Windows.Forms.Button btnDrink;
         private System.Windows.Forms.Button btnPickUpItems;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
 
